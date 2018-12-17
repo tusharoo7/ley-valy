@@ -1,0 +1,139 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+$lightgrey:#eceff1;
+$blue:#4F89F3;
+
+@mixin d-bt {
+  background: $blue;
+  padding: 12px 15px;
+  border-radius: 35px;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  -ms-border-radius: 35px;
+  -o-border-radius: 35px;
+}
+
+a {
+  text-decoration: none;
+}
+
+body,
+ion-app.md,
+ion-app.ios {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500
+}
+
+.container {
+  width: 1366px;
+  margin: 0 auto;
+}
+
+.item-md,
+.item-ios {
+  padding-left: 0;
+  background: $lightgrey;
+  border-radius: 35px;
+  margin-bottom: 12px;
+}
+
+.log-in-form-cont {
+  width: 40%;
+  margin: 3% auto;
+}
+
+.list-md .item-block .item-inner,
+.list-ios .item-block .item-inner {
+  border: none
+}
+
+.list-md .item-input:last-child,
+.list-ios .item-input:last-child {
+  border: none
+}
+
+.item-md.item-input.item-input-has-focus .item-inner,
+.item-md.item-input.input-has-focus .item-inner {
+  border-bottom-color: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none
+}
+
+.item-ios.item-input.item-input-has-focus .item-inner,
+.item-ios.item-input.input-has-focus .item-inner {
+  border-bottom-color: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none
+}
+
+.list-md .item-input.item-input-has-focus:last-child,
+.list-md .item-input.input-has-focus:last-child {
+  border-bottom-color: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+}
+
+.list-ios .item-input.item-input-has-focus:last-child,
+.list-ios .item-input.input-has-focus:last-child {
+  border-bottom-color: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+}
+
+.text-input-md,
+.text-input-ios {
+  margin: 13px 8px;
+  padding: 0 0 0 30px;
+  width: calc(100% - 8px - 8px);
+}
+
+.container {
+  margin: 0 auto;
+  width: 1366px;
+}
+
+@media(max-width:1365px) {
+  .container {
+    width: 100%
+  }
+
+  .log-in-form-cont {
+    width: 70%;
+  }
+}
+
+@media(max-width:767px) {
+  .log-in-form-cont {
+    width: 100%;
+  }
+}
+
+.nav-wrap {
+
+  .item-md,
+  .item-ios {
+    background: none;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+}

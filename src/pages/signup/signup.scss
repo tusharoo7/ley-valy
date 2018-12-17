@@ -1,0 +1,294 @@
+page-signup {
+  .bg {
+    background: url(../assets/imgs/login-signup_bg.png) no-repeat;
+    background-size: cover;
+    background-position: bottom;
+  }
+
+
+  .login-page-wrapper img {
+    display: block;
+    margin: 0 auto;
+
+    @media(max-width: 767px) {
+      margin: 0 auto 12%;
+      width: 200px;
+    }
+  }
+
+  .login-page-wrapper {
+    margin-top: 7%;
+  }
+
+
+  .log-in-form-cont {
+    text-align: center;
+
+    .log-in-bt {
+      background: #043ab4;
+      width: 40%;
+      height: 50px;
+      border-radius: 42px;
+      font-size: 16px;
+      color: #fff;
+      text-transform: uppercase;
+      margin-top: 18px;
+      text-align: center;
+      line-height: 45px;
+      margin: 30px auto 0;
+      display: block;
+    }
+
+    .or-wrap {
+      position: relative;
+      border-bottom: 1px dashed #ccc;
+      width: 66%;
+      margin: 0 auto;
+      margin: 8% auto 5.4%;
+
+      span {
+        position: absolute;
+        left: 50%;
+        top: -22px;
+        background: #fff;
+        width: 45px;
+        height: 45px;
+        display: block;
+        margin-left: -22px;
+        font-size: 17px;
+        text-align: center;
+        line-height: 45px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+      }
+
+
+    }
+
+    a.forgot-pass {
+      color: $yellow;
+      margin: 12px 0;
+      display: inline-block;
+
+    }
+
+    .linkedin-bt {
+      background: #fffffe;
+      //border:1px solid #0077B5;
+      //background: none;
+      width: 100%;
+      border-radius: 50px;
+      font-size: 17px;
+      color: $text-color;
+      margin-top: 18px;
+      text-align: center;
+      line-height: 45px;
+      font-weight: 400;
+      border: 1px solid #b6c4f6;
+      height: 50px;
+      position: relative;
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      -ms-border-radius: 50px;
+      -o-border-radius: 50px;
+      box-shadow: 0px 2px 5px #c8c8c8;
+      padding-left: 45px;
+    }
+
+    .linkedin-bt-icon-wrap {
+      position: absolute;
+      left: 0;
+      background: #0077b5;
+      width: 50px;
+      height: 50px;
+      top: 0;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+
+      img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 22px;
+      }
+    }
+
+    .sign-up-bt {
+
+      //border:1px solid #EB5B8D;
+      .linkedin-bt-icon-wrap {
+        background: #eb5b8d;
+
+      }
+
+    }
+
+  }
+
+  .log-bg {
+    border-top: 9px solid $blueM;
+  }
+
+  ion-label {
+    width: 62px;
+    height: 62px;
+    //background: #f4f4f4;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    //border: 1px solid #ccc;
+    position: relative;
+
+    img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.3;
+      width: 18px;
+    }
+  }
+
+
+  .profile-pic {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 4% auto;
+
+    div {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #ccc;
+
+
+      /*FOR PROFILE PIC CENTER*/
+      img {
+        width: 100%;
+        transform: translateY(-50%);
+        top: 50%;
+        position: relative;
+        height: 100%;
+      }
+    }
+
+    span {
+      position: absolute;
+      right: -8px;
+      bottom: 7px;
+      border: 1px solid #ccc;
+      background: #fff;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+    }
+
+    ion-icon {
+      font-size: 17px;
+      color: #333;
+      margin: 5px;
+    }
+  }
+
+  .static_col {
+    width: 48%;
+    float: left;
+    margin: 0 1%;
+  }
+
+  @media(max-width:767px) {
+    .static_col {
+      width: 100%;
+      float: none;
+      margin: 0;
+    }
+
+    .sign-up-bt {
+      margin-top: 18px !important;
+    }
+
+    ion-label {
+      width: 42px;
+      height: 42px;
+      margin: 11px 8px 13px 0 !important;
+
+      img {
+        max-width: 50%;
+      }
+    }
+
+    .log-in-form-cont {
+      .log-in-bt {
+        width: 100% !important;
+        height: 40px;
+      }
+
+      .linkedin-bt {
+        height: 40px;
+        line-height: 40px;
+      }
+
+      .linkedin-bt-icon-wrap {
+        width: 40px;
+        height: 40px;
+
+
+      }
+    }
+
+    .profile-pic {
+      width: 80px;
+      height: 80px;
+
+      div {
+        width: 80px;
+        height: 80px;
+      }
+
+
+    }
+  }
+
+  .list-md {
+    overflow: hidden;
+  }
+
+  .label-md {
+    margin: 13px 0 13px 0;
+  }
+
+  .text-input-md,
+  .text-input-ios {
+    margin: 13px 0;
+  }
+  .item-md,
+  .item-ios {
+    border: 1px solid #ccc;
+  }
+  input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+}

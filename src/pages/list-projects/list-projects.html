@@ -1,0 +1,68 @@
+<!--
+  Generated template for the ListProjectsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Created Project List</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class="container">
+      <ion-grid>
+      
+        <ion-row>
+  
+          <ion-col col-12>
+            <div class="bussiness-table-wrap">
+              <table class="bussiness-table">
+                  <tr>
+                       <th>Project Titel</th>
+                       <th>Project Preview</th>
+                      <th>created At</th>
+                      <th>Document Attached</th>
+                      <th>Statistic</th>
+                      <th>Create  Access Link</th>
+                      <th >Action</th>
+                </tr>
+                <tr *ngFor ="let data of projects_list" >
+                 
+                  <td>{{data.name}}</td>
+                  <td><a href="{{data.preview}}" target="blank">CLick here</a></td>
+                  <td>{{data.created_at | date:'shortDate'}}</td>
+                  <td>{{data.project_items_count
+                    }}</td>
+                   
+                    <td><button ion-button round color="dark" (click)="viewstat(data.id)">View Stat</button></td>
+                    <td >
+                      
+                      <button ion-button round (click)="createdlink(data.id)">Created Link </button>
+                      <button ion-button round color="dark" (click)="addlink(data.id)">Create Link</button>
+                    </td>
+                  <td >
+                      <button ion-button round (click)="addfile(data.id)" >Add Docs</button>
+                  </td>
+                 
+  
+                </tr>
+                
+                  
+                 
+                          
+              </table>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    
+    
+    
+  </ion-content>

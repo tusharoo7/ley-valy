@@ -1,0 +1,313 @@
+page-bussinesscard {
+
+  .add_btn_area {
+    margin-right: 15px;
+
+    .add_btn {
+      margin: 0;
+      padding: 10px 0;
+      background: none;
+      border-radius: 15px;
+      font-size: 14px;
+      color: #fff;
+      font-weight: 700;
+    }
+    ion-icon{font-size: 26px}
+  }
+
+  .bussiness-table-wrap {
+    overflow: auto;
+  }
+
+  .bussiness-table tr:nth-child(even) {
+    background-color: #f1f1f1;
+  }
+
+  .w3-bordered tr,
+  .bussiness-table tr {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .bussiness-table td,
+  .bussiness-table th {
+    padding: 14px 8px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  .bussiness-table th {
+    background: $blue;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  table.bussiness-table {
+    width: 100%;
+  }
+
+  .bussiness-table {
+    border: 1px solid #ccc;
+  }
+
+  .bussiness-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    display: table;
+  }
+
+
+
+  .search_block {
+    text-align: center;
+  }
+
+  .search-wrap {
+    // float: right;
+    width: 45%;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto 20px;
+    position: relative;
+
+    .search_icon {
+      background: none;
+      font-size: 18px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+
+    @media(max-width: 767px) {
+      float: none;
+      width: 100%;
+    }
+
+
+    input {
+      width: 100%;
+      height: 40px;
+      border-radius: 35px;
+      -webkit-border-radius: 35px;
+      -moz-border-radius: 35px;
+      -ms-border-radius: 35px;
+      -o-border-radius: 35px;
+      border: 1px solid #ccc;
+      padding: 0 12px;
+    }
+  }
+
+  .button_area {
+    text-align: center;
+
+    .add-bt {
+      background: #1d4dbb;
+      height: 86px;
+      text-align: center;
+      padding: 0 30px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 400;
+      border-radius: 50px;
+      margin-right: 12px;
+      min-width: 368px;
+      text-transform: uppercase;
+
+      img {
+        width: 20px;
+        float: left;
+        margin-right: 8px
+      }
+
+      span {
+        float: left;
+        margin: 3px 0 0;
+      }
+    }
+
+    .delete-bt {
+      background: #343434;
+      height: 86px;
+      text-align: center;
+      padding: 0 30px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 400;
+      border-radius: 50px;
+      margin-right: 12px;
+      min-width: 368px;
+      text-transform: uppercase;
+
+      img {
+        width: 20px;
+        float: left;
+        margin-right: 8px
+      }
+
+      span {
+        float: left;
+        margin: 3px 0 0;
+      }
+    }
+
+  }
+
+  span.delete {
+    margin: 0;
+    padding: 0;
+    background: #ccc;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: left;
+    position: absolute;
+    right: 19px;
+    top: 16px;
+
+    span {
+      background: url(../assets/imgs/delete_iocn.png) no-repeat;
+      width: 18px;
+      height: 24px;
+      display: inline-block;
+      position: relative;
+      top: 6px;
+      left: 9px;
+      background-size: contain;
+    }
+  }
+
+  .bussinesscard-list-wrap-box.col {
+    position: relative;
+  }
+  .bussinesscard-list-wrap-box.no-card-found {
+    height: 192px;
+    border: 1px solid #ccc;
+    position: relative;
+    border-radius: 6px;
+    margin-top: 4px;
+   p{position: absolute; left: 50%;top: 50%;transform: translate(-50%, -50%); margin: 0}
+  }
+  .center_text {
+    text-align: center !important;
+  }
+
+  .footer {
+    margin: 0;
+    padding: 6px 0;
+    background: #043ab4;
+    height: 56px;
+    display: none;
+
+
+    button {
+      background: none;
+      color: #fff;
+      font-size: 36px;
+    }
+  }
+
+  ul,
+  li {
+    list-style: none;
+    padding: 0
+  }
+.card_not_found{
+  .bussinesscard-list-wrap{ justify-content: center;}
+ }
+  .bussinesscard-list-wrap {
+    
+    ul {
+      border: 1px solid #ccc;
+      padding: 7px 0 0 0;
+      overflow: hidden;
+      width: auto;
+      border-radius: 6px;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      -ms-border-radius: 6px;
+      -o-border-radius: 6px;
+      margin: 0;
+    }
+
+    li {
+      overflow: hidden;
+      margin-bottom: 5px;
+      margin: 2% 3%;
+
+      &:last-child{
+        margin: 0;
+      }
+
+
+      h2 {
+        float: left;
+        margin: 0;
+        font-size: 15px;
+       
+        // font-weight: bold;
+        ion-icon{margin-right: 8px; margin-bottom: 6px;}
+      }
+
+      h3 {
+        float: left;
+        font-size: 15px;
+        margin: -1px 0 0 0;
+       // margin-left: 8px
+      }
+      &:first-child{
+        h2{font-size: 16px}
+        h3{font-size: 16px; font-weight: bold}
+      }
+    }
+  }
+
+  /*responsive view*/
+  @media (max-width: 991px) {
+    .add-bt {
+      margin-bottom: 20px;
+    }
+    [col-4] {
+      -webkit-box-flex: 0;
+      width: 50%;
+      max-width: 50%;
+      flex: 0 0 50%;
+  }
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      display: block;
+    }
+  }
+
+  @media (max-width: 480px) {
+
+    .add-bt,
+    .delete-bt {
+      margin-bottom: 20px;
+      min-width: auto !important;
+      width: 100%;
+    }
+  }
+  button.view-details {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    padding: 13px 8px;
+    background: rgb(238, 238, 238);
+}
+  /*responsive view*/
+
+  #div1, #div2 {
+    float: left;
+    width: 100px;
+    height: 35px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+}

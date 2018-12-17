@@ -1,0 +1,95 @@
+<!--
+  Generated template for the TrackPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Access links</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="container">
+    <div class="top-buttons">
+
+        <div class="next-prev-wrap">
+            <pagination-controls (pageChange)="pageChanged(p = $event)" autoHide="true" directionLinks="true"></pagination-controls> 
+            <!-- <a href="#"><ion-icon ios="ios-arrow-dropright-outline" md="ios-arrow-dropright-outline"></ion-icon></a>
+            <a href="#"><ion-icon ios="ios-arrow-dropleft-outline" md="ios-arrow-dropleft-outline"></ion-icon></a> -->
+          </div>
+      <div class="pagination">Showing {{display_total_number_of_records}} of {{total_record}} records</div>
+    </div>
+      
+  <div class="divTable" *ngFor ="let data of projects_list | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+   
+    <div class="divTableBody">
+      <div class=""  [ngClass]="i > 0 ? 'divTableRow head disnone': 'divTableRow head'">
+        <div class="divTableCell">Interet</div>
+        <div class="divTableCell">Nom</div>
+        <div class="divTableCell">Duree</div>
+        <div class="divTableCell">Dernier Acces</div>
+        <div class="divTableCell">Connexion</div>
+       
+      </div>
+
+      <div class="divTableRow"  (click)="getstat(data.project_id,data.project_name)"> 
+          <div class="divTableCell">
+              <div class="mob-table-title">Interet:</div>
+            <div class="circle">{{data.interest}}</div>
+          </div>
+          <div class="divTableCell">
+            <div class="mob-table-title">Nom:</div>
+            <div class="info">
+            
+              
+              <h2>{{data.name}}</h2>
+              <p><b>{{data.project_name}}</b></p>
+            </div>
+  
+          </div>
+          <div class="divTableCell" style="width:150px"> 
+            <div class="mob-table-title">Duree:</div>
+            <div class="info">{{data.total_time | milisecondtotime}}</div>
+            
+          </div>
+          <div class="divTableCell" style="width:150px">
+            <div class="mob-table-title">Dernier acces:</div>
+          <div *ngIf="data.last_sign_in_at!=null"class="info">{{ data.last_sign_in_at | dateformatter }}</div>  
+          </div>
+          <div class="divTableCell" style="width:150px">
+            <div class="mob-table-title">Connexioner:</div> 
+           <div class="info">{{data.nb_connections}} fois</div> 
+          </div>
+        </div>
+     
+
+      
+      
+
+    </div>
+  </div>
+  
+
+  <!-- <pagination-controls  id="some_id"
+                      (pageChange)="pageChanged($event)"
+                      maxSize="9"
+                      directionLinks="true"
+                      autoHide="true"
+                      responsive="true"
+                      previousLabel="Previous"
+                      nextLabel="Next"
+                      screenReaderPaginationLabel="Pagination"
+                      screenReaderPageLabel="page"
+                      screenReaderCurrentLabel="You're on page"></pagination-controls> -->
+
+  
+</div>
+<ion-fab right bottom class="home-menu"> 
+    <button ion-fab color="danger" (click)="got_to_home()"><ion-icon ios="ios-home-outline" md="ios-home-outline"></ion-icon></button>
+  </ion-fab>
+</ion-content>

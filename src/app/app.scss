@@ -1,0 +1,404 @@
+$lightgrey:#eceff1;
+$blue:#4F89F3;
+$blueM:#043ab4;
+$yellow:#FEA400;
+$green:#21A024;
+$text-color:#757575;
+
+@mixin d-bt {
+  background: $blue;
+  padding: 12px 15px;
+  border-radius: 35px;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  -ms-border-radius: 35px;
+  -o-border-radius: 35px;
+  color: #fff;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+body,
+ion-app.md,
+ion-app.ios {
+  font-family: 'Lato', sans-serif;
+ // font-weight: 400
+}
+
+.container {
+  width: 1366px;
+  margin: 0 auto;
+}
+
+.item-md,
+.item-ios {
+  padding-left: 0;
+  border-radius: 47px;
+  margin-bottom: 24px;
+  border: 1px solid #b6c4f6;
+  height:50px;
+
+}
+
+.log-in-form-cont {
+  width: 70%;
+  margin: 3% auto;
+
+  .item-md,
+  .item-ios{
+    // box-shadow: 0px 2px 5px #c8c8c8;
+    // text-transform: uppercase;
+  }
+}
+
+.list-md .item-block .item-inner,
+.list-ios .item-block .item-inner {
+  border: none;
+}
+
+// .list-md .item-input:last-child,
+// .list-ios .item-input:last-child {
+//   border: none
+// }
+.list-md .item-input:last-child, .list-ios .item-input:last-child {
+  border-bottom: 1px solid #ccc;
+}
+
+.item-md.item-input.item-input-has-focus .item-inner,
+.item-md.item-input.input-has-focus .item-inner {
+  border-bottom-color: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none
+}
+
+.item-ios.item-input.item-input-has-focus .item-inner,
+.item-ios.item-input.input-has-focus .item-inner {
+  border-bottom-color: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none
+}
+
+.list-md .item-input.item-input-has-focus:last-child,
+.list-md .item-input.input-has-focus:last-child {
+  border-bottom-color: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  // border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.list-ios .item-input.item-input-has-focus:last-child,
+.list-ios .item-input.input-has-focus:last-child {
+  border-bottom-color: none;
+  -webkit-box-shadow: none;
+  //box-shadow: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.text-input-md,
+.text-input-ios {
+  margin: 13px 8px;
+  padding: 0;
+  width: calc(100% - 8px - 45px);
+  font-size: 15px;
+  color:#757575;
+  //text-align: center;
+}
+// .text-input-md::placeholder,
+// .text-input-ios::placeholder{
+//     text-transform: uppercase;
+//     color: green
+// }
+
+.container {
+  margin: 0 auto;
+  width: 1366px;
+}
+
+
+
+.nav-wrap {
+  .label-md, .label-ios  {
+    margin: 0 8px 13px 0;
+}
+  .item-md,
+  .item-ios {
+    background: none;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+
+}
+
+.log-bg {
+  background: url(../assets/imgs/bg.jpg) no-repeat;
+  background-size: cover
+}
+
+.toolbar-background-md,
+.toolbar-background-ios {
+  // border-color: #232C37;
+  // background: #232C37;
+  background: $blueM;
+}
+
+.toolbar-title-md,
+.toolbar-title-ios {
+  color: #fff;
+}
+
+.bar-button-default-md,
+.bar-button-clear-md-default,
+.bar-button-md-default {
+  color: #fff;
+  background-color: transparent;
+}
+
+.bar-button-default-md:hover:not(.disable-hover),
+.bar-button-clear-md-default:hover:not(.disable-hover),
+.bar-button-md-default:hover:not(.disable-hover) {
+  color: #fff;
+}
+
+.md .menu-inner, .ios .menu-inner  {
+  background: #232C37;
+
+  .content-md, .content-ios {
+    color: rgb(154, 166, 180);
+    background: none;
+  }
+
+  .item-md, .item-ios {
+    color: rgb(154, 166, 180);
+  }
+
+  .item-md,
+  .item-ios {
+    border: none
+  }
+}
+
+.nav-wrap {
+  padding-left: 20px;
+
+  .item:first-child {
+    background: url(../assets/imgs/house-outline.svg) no-repeat left center;
+    background-size: 20px auto;
+    padding-left: 34px;
+  }
+
+  .item:nth-child(2) {
+    background: url(../assets/imgs/user.svg) no-repeat left center;
+    background-size: 20px auto;
+    padding-left: 34px;
+  }
+
+  .item:nth-child(3) {
+    background: url(../assets/imgs/card.png) no-repeat left center;
+    background-size: 20px auto;
+    padding-left: 34px;
+  }
+
+  .item:nth-child(4) {
+    background: url(../assets/imgs/key.png) no-repeat left center;
+    background-size: 20px auto;
+    padding-left: 34px;
+  }
+
+  .item:nth-child(5) {
+    background: url(../assets/imgs/logout.png) no-repeat left center;
+    background-size: 20px auto;
+    padding-left: 34px;
+  }
+  .item:nth-child(6) {
+    background: url(../assets/imgs/change-password.png) no-repeat left center;
+    background-size: 20px auto;
+    padding-left: 34px;
+  }
+
+  .item:nth-child(7) {
+    background: url(../assets/imgs/contact.svg) no-repeat left center;
+    background-size: 20px auto;
+    padding-left: 34px;
+  }
+
+  .item:nth-child(8) {
+    background: url(../assets/imgs/logout.png) no-repeat left center;
+    background-size: 20px auto;
+    padding-left: 34px; 
+  }
+  .list-md {
+    margin: -1px 0 16px;
+    padding-left: 20px;
+  }
+}
+.item-md.item-block .item-inner, .item-ios.item-block .item-inner{
+  border-bottom: none;
+}
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+.item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+{
+  border:none;
+  box-shadow:none;
+}
+
+.list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child,
+.list-ios .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list-ios .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child{
+  border-bottom: 1px solid #ccc;
+  // box-shadow: 0px 2px 5px #c8c8c8;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid #fff;
+  background-color: #eceff1 !important;
+ // -webkit-text-fill-color: #eceff1;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+@media(max-width:1366px) {
+  .container {
+    width: 100%
+  }
+}
+
+@media(max-width:767px) {
+  .log-in-form-cont {
+    width: 100%;
+  }
+  .col{
+    width:100% !important;
+    max-width:100% !important;
+    -webkit-flex-basis: auto !important;
+  }
+  .item-md,
+  .item-ios {
+    height: 40px;
+  }
+//   [col-6] {
+//     -webkit-box-flex: 0;
+//     -webkit-flex: 0 0 100%;
+//     -ms-flex: 0 0 100%;
+//     flex: 0 0 100%;
+//     width: 100%;
+//     max-width: 100%;
+// }
+}
+.list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child{box-shadow: none;}
+
+/*For disable the scrolbar*/
+ion-menu .scroll-content{overflow-y: hidden}
+.item-ios[detail-push] .item-inner, button.item-ios:not([detail-none]) .item-inner, a.item-ios:not([detail-none]) .item-inner{background-image: none}
+
+.floating-home-icon {
+  width: 40px;
+  height: 40px;
+  background: #043ab4;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  padding: 12px 
+}
+.home-menu{ 
+  .fab-md-danger{ background:  #043ab4;}
+  .fab{height: 40px; width: 40px;}
+}
+
+/* in-flight clone */
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  pointer-events: none;
+}
+/* high-performance display:none; helper */
+.gu-hide {
+  left: -9999px !important;
+}
+/* added to mirrorContainer (default = body) while dragging */
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+/* added to the source element while its mirror is dragged */
+.gu-transit {
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20);
+}
+ion-fab.home-menu {
+  right: 30px;
+  bottom: 22px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+/*--------------PAGINATION---------------------*/
+// .ngx-pagination li{
+//   display: none;
+// }
+// .ngx-pagination li.pagination-previous, .ngx-pagination li.pagination-next{display: block}
+
+.ngx-pagination li {
+  display: inline-block;
+  position: absolute;
+  width: 41px;
+  top: 8px;
+  right: 11%;
+
+  &.pagination-next{right: 12%;}
+  &.pagination-previous{right: 15%;}
+}
+// .ngx-pagination .pagination-next a::after, .ngx-pagination .pagination-next.disabled::after{display: none}
+// .ngx-pagination .pagination-previous a::before, 
+// .ngx-pagination .pagination-previous.disabled::before{display: none}
+// .ngx-pagination .current{display: none}
+
+.ngx-pagination .pagination-previous a::before, .ngx-pagination .pagination-previous.disabled::before{content: ""}
+.ngx-pagination .pagination-next a::after, .ngx-pagination .pagination-next.disabled::after{content: "" !important; display: none !important}
+.next-prev-wrap a {
+  float: right;
+   font-size: 27px !important; 
+   margin-left: auto !important; 
+  color: #636262;
+}
+.ngx-pagination .pagination-previous a::before, .ngx-pagination .pagination-previous.disabled::before {
+  content: "" !important;display: none !important
+
+}
+.ngx-pagination a:hover, .ngx-pagination button:hover {
+  background: none;
+}
+.alert-message {
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+@media(max-width:767px){
+  .ngx-pagination li.pagination-next {
+    right: 4%;
+}
+
+.alert-message {
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+}

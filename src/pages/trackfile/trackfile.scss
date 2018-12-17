@@ -1,0 +1,178 @@
+page-trackfile {
+  .log-in-form-cont {
+    .log-in-bt {
+      width: 100% !important;
+      height: 40px;
+    }
+
+    .linkedin-bt {
+      height: 40px;
+      line-height: 40px;
+    }
+
+    .linkedin-bt-icon-wrap {
+      width: 40px;
+      height: 40px;
+
+
+    }
+  }
+
+  .log-in-form-cont h2 {
+    font-size: 16px;
+  }
+
+  .log-in-form-cont {
+    text-align: center;
+
+    h2 {
+      color: #053fb5;
+      margin-bottom: 40px;
+    }
+
+    .log-in-bt {
+      background: #043ab4;
+      width: 40%;
+      height: 50px;
+      border-radius: 42px;
+      font-size: 16px;
+      color: #fff;
+      text-transform: uppercase;
+      margin-top: 18px;
+      text-align: center;
+      line-height: 45px;
+      margin: 30px auto 0;
+      display: block;
+    }
+
+    .or-wrap {
+      position: relative;
+      border-bottom: 1px dashed #ccc;
+      width: 66%;
+      margin: 0 auto;
+      margin: 8% auto 5.4%;
+
+      span {
+        position: absolute;
+        left: 50%;
+        top: -22px;
+        background: #fff;
+        width: 45px;
+        height: 45px;
+        display: block;
+        margin-left: -22px;
+        font-size: 17px;
+        text-align: center;
+        line-height: 45px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+      }
+
+
+    }
+
+    a.forgot-pass {
+      color: $yellow;
+      margin: 12px 0;
+      display: inline-block;
+
+    }
+
+    .linkedin-bt {
+      background: #fffffe;
+      //border:1px solid #0077B5;
+      //background: none;
+      width: 100%;
+      border-radius: 50px;
+      font-size: 17px;
+      color: $text-color;
+      margin-top: 18px;
+      text-align: center;
+      line-height: 45px;
+      font-weight: 400;
+      border: 1px solid #b6c4f6;
+      height: 50px;
+      position: relative;
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      -ms-border-radius: 50px;
+      -o-border-radius: 50px;
+      box-shadow: 0px 2px 5px #c8c8c8;
+      padding-left: 45px;
+    }
+
+    .linkedin-bt-icon-wrap {
+      position: absolute;
+      left: 0;
+      background: #0077b5;
+      width: 50px;
+      height: 50px;
+      top: 0;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+
+      img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 22px;
+      }
+    }
+
+    .sign-up-bt {
+
+      //border:1px solid #EB5B8D;
+      .linkedin-bt-icon-wrap {
+        background: #eb5b8d;
+
+      }
+
+    }
+
+  }
+
+  ion-label {
+    width: 62px;
+    height: 62px;
+    //background: #f4f4f4;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    //border: 1px solid #ccc;
+    position: relative;
+
+    img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.3;
+      width: 18px;
+    }
+  }
+
+  .static_col {
+    width: 45%;
+    float: left;
+    margin: 0 1%;
+  }
+
+  .log-in-form-cont h2 {
+    color: #053fb5;
+    margin-bottom: 40px;
+    font-size: 24px;
+  }
+
+  @media(max-width: 767px){
+    .log-in-bt, .static_col{width: 100%}
+  }
+}

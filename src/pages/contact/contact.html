@@ -1,0 +1,229 @@
+<!--
+  Generated template for the ContactPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Contact</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="contact_search">
+  <div class="conatct_container">
+    <div class="container">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+            <div class="log-in-form-cont">
+            
+                <h2>Enter first name, last name and domain name to launch the search</h2>
+            
+              <form>
+              <ion-list>
+                <div class="static_col">
+                  <ion-item>
+                    <ion-input type="text" name="first_name" [(ngModel)]="user.first_name" maxlength="50" placeholder="First name"></ion-input>
+                     <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-1.png" alt=""></ion-label>
+                  </ion-item>
+                </div>
+                <div class="static_col">
+                  <ion-item>
+                    <ion-input type="text" name="last_name" [(ngModel)]="user.last_name"  maxlength="50" placeholder="Last name"></ion-input>
+                    <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-1.png" alt=""></ion-label>
+                  </ion-item>
+                </div>
+                <div class="static_col2"><span>@</span></div>
+                <div class="static_col">
+                  <ion-item>
+                    <ion-input type="text" name="domain" [(ngModel)]="user.domain"  maxlength="50" placeholder="company.com"></ion-input>
+                    <ion-label class="mail-icon-wrap"><img src="assets/imgs/www.png" alt=""></ion-label>
+                  </ion-item>
+                </div>
+                
+               
+              </ion-list>
+              <button ion-button class="log-in-bt" type="submit" (click)="search_contact()" >Search</button>
+  
+  
+              </form>
+             
+  
+  
+            </div>
+
+            <!-- <div class="contact-lower-part">
+              <p>You have exceeded your monthly credit.</p>
+              <h2>Two options :</h2>
+              <h3>Upgrade to the next plan</h3>
+              <h3>wait to the next month</h3>
+            </div> -->
+            <!-- <div class="contact-lower-part contact-lower-part2">
+              <b>Alexandra Fleury</b>
+              <p>Executive business coach at afcoach.fr</p>
+              <div class="mail-info">
+                <h4>alexandra@afcoach.fr</h4>
+                <ul>
+                  <li><img src="assets/imgs/icon-5.png" alt="">+ 33 6 12 34 56 78</li>
+                  <li><img src="assets/imgs/icon-5.png" alt="">+ 33 6 12 34 56 78</li>
+                </ul>
+                <button ion-button class="save-bt" type="submit" >Save</button>
+              </div>
+            </div> -->
+
+            <!-- <div class="contact-lower-part">
+                
+                <h2>No results found.</h2>
+                <h3>Nevertheless most common patter is :</h3>
+                <h3>Most common pattern : first@afcoach.fr</h3>
+              </div> -->
+              <!-- <div class="contact-lower-part contact-lower-part2">
+                  <b>Alexandra Fleury</b>
+                  <p>Executive business coach at afcoach.fr</p>
+                  <div class="mail-info">
+                    <h4>alexandra@afcoach.fr</h4>
+                    <ul>
+                      <li><img src="assets/imgs/no-phone.png" alt="">No phone contact found</li>
+                      
+                    </ul>
+                    <button ion-button class="save-bt" type="submit" >Save</button>
+                  </div>
+                </div> -->
+
+<!-- -----------------------------------------LIST WITH 3 GRIDS---------------------------------------- -->
+
+<!-- <div class="contact-lower-main-wrapper">
+  <div class="contact-lower-part">
+    <p>You have exceeded your monthly credit.</p>
+    <h2>Two options :</h2>
+    <h3>Upgrade to the next plan</h3>
+    <h3>wait to the next month</h3>
+  </div> -->
+
+  
+
+  <div class="contact-lower-main-wrapper">
+    <div *ngIf="hunter.status !=''">
+
+      <div *ngIf="hunter.status =='sucess'">
+        <div class="contact-lower-part contact-lower-part2">
+          <b>{{hunter.first_name}} {{hunter.last_name}}</b>
+          <p>{{hunter.position}} at {{hunter.company
+          }}</p>
+          <div class="mail-info">
+            <h4>{{hunter.email}}</h4>
+            <ul>
+              <li><img src="assets/imgs/icon-5.png" alt=""> {{hunter.phone_number}}</li>
+              <!-- <li><img src="assets/imgs/icon-5.png" alt="">+ 33 6 12 34 56 78</li> -->
+            </ul>
+            <button class="save-bt" type="submit" (click)="add_this_data()">Save</button>
+          </div>
+        </div>
+      </div>
+      
+      <div *ngIf="hunter.status =='failure'  ">
+        <div class="contact-lower-part">
+      
+          <h2>No results found.</h2>
+          <h3>Nevertheless most common patter is :</h3>
+          <h3>Most common pattern : first@afcoach.fr</h3>
+        </div>
+      </div>
+      </div>
+      
+      
+      <div *ngIf="lusha.status !=''">
+      
+      <div *ngIf="lusha.status =='sucess'">
+        <div class="contact-lower-part contact-lower-part2">
+          <b>{{lusha.first_name}} {{lusha.last_name}}</b>
+          <p>{{lusha.position}} at {{lusha.company
+          }}</p>
+          <div class="mail-info">
+            <h4>{{lusha.email}}</h4>
+            <ul>
+              <li><img src="assets/imgs/icon-5.png" alt=""> {{lusha.phone_number}}</li>
+              <li><img src="assets/imgs/icon-5.png" alt=""> {{lusha.phone_number_two}}</li>
+            </ul>
+            <button class="save-bt" type="submit" (click)="add_lusha_data()">Save</button>
+          </div>
+        </div>
+      </div>
+      
+      <div *ngIf="lusha.status =='failure'">
+        <div class="contact-lower-part">
+      
+          <h2>No results found.</h2>
+          <h3>Nevertheless most common patter is :</h3>
+          <h3>Most common pattern : first@afcoach.fr</h3>
+        </div>
+      </div>
+  </div>
+
+
+
+</div>
+
+  
+
+  
+  <!--  -->
+
+
+ 
+
+  <!-- <div class="contact-lower-part contact-lower-part2">
+    <b>Alexandra Fleury</b>
+    <p>Executive business coach at afcoach.fr</p>
+    <div class="mail-info">
+      <h4>alexandra@afcoach.fr</h4>
+      <ul>
+        <li><img src="assets/imgs/icon-5.png" alt="">+ 33 6 12 34 56 78</li>
+        <li><img src="assets/imgs/icon-5.png" alt="">+ 33 6 12 34 56 78</li>
+      </ul>
+      <button class="save-bt" type="submit">Save</button>
+    </div>
+  </div> -->
+
+  <!-- <div class="contact-lower-part contact-lower-part2">
+    <b>Alexandra Fleury</b>
+    <p>Executive business coach at afcoach.fr</p>
+    <div class="mail-info">
+      <h4>alexandra@afcoach.fr</h4>
+      <ul>
+        <li><img src="assets/imgs/icon-5.png" alt="">+ 33 6 12 34 56 78</li>
+        <li><img src="assets/imgs/icon-5.png" alt="">+ 33 6 12 34 56 78</li>
+      </ul>
+      <button class="save-bt" type="submit">Save</button>
+    </div>
+  </div> -->
+
+  <!-- <div class="contact-lower-part contact-lower-part2">
+    <b>Alexandra Fleury</b>
+    <p>Executive business coach at afcoach.fr</p>
+    <div class="mail-info">
+      <h4>alexandra@afcoach.fr</h4>
+      <ul>
+        <li><img src="assets/imgs/icon-5.png" alt="">+ 33 6 12 34 56 78</li>
+        <li><img src="assets/imgs/icon-5.png" alt="">+ 33 6 12 34 56 78</li>
+      </ul>
+      <button class="save-bt" type="submit">Save</button>
+    </div>
+  </div>
+
+</div> -->
+                
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <ion-fab right bottom class="home-menu"> 
+    <button ion-fab color="danger" (click)="got_to_home()"><ion-icon ios="ios-home-outline" md="ios-home-outline"></ion-icon></button>
+  </ion-fab>
+
+  <!-- <button (click)="got_to_camcard()">got cam-card</button> -->
+</ion-content>

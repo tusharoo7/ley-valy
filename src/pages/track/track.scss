@@ -1,0 +1,168 @@
+page-track {
+
+  /* DivTable.com */
+  .divTable {
+    display: table;
+    width: 77%;
+    border: 1px solid #d1d1d1;
+    margin: 0 auto;
+
+    h2 {
+      font-size: 14px;
+      color: #636262;
+    }
+  }
+
+  .divTableRow {
+    display: table-row;
+  }
+
+  .divTableHeading {
+    background-color: #EEE;
+    display: table-header-group;
+  }
+
+  .divTableCell,
+  .divTableHead {
+    //border: 1px solid #999999;
+    display: table-cell;
+    padding: 14px 8px;
+    color: #636262;
+    vertical-align: top;
+    width: 73px;
+  }
+
+  .head {
+
+    .divTableCell,
+    .divTableHead {
+
+      background: #8ca9e0;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+
+  .divTableHeading {
+    background-color: #EEE;
+    display: table-header-group;
+    font-weight: bold;
+  }
+
+  .divTableFoot {
+    background-color: #EEE;
+    display: table-footer-group;
+    font-weight: bold;
+  }
+
+  .divTableBody {
+    display: table-row-group;
+
+  }
+
+  .mob-table-title {
+    display: none
+  }
+
+  .circle {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 54px;
+    height: 54px;
+    background: #f1f1f1;
+    border: 1px solid #b1b1b1;
+    color: #636262;
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media(max-width: 767px) {
+      font-size: 16px;
+      width: 38px;
+      height: 38px;
+    }
+  }
+
+  .top-buttons {
+    font-size: 12px;
+    text-align: right;
+    width: 77%;
+    margin: 0 auto 5px;
+    color: #636262;
+  }
+
+  .next-prev-wrap {
+    float: right;
+
+    a {
+      float: right;
+      font-size: 27px;
+      margin-left: 12px;
+      color: #636262
+    }
+  }
+
+  .disnone {
+    display: none;
+  }
+
+  @media(max-width:767px) {
+    .divTableRow {
+      display: block;
+    }
+
+    .divTableCell,
+    .divTableHead {
+      display: block;
+      width: auto !important;
+      overflow: hidden;
+      padding: 10px 8px 6px;
+     
+    }
+
+    .divTable {
+      width: 100%;
+      margin-bottom: 12px;
+    }
+
+    .head {
+      display: none
+    }
+
+    .mob-table-title {
+      display: block;
+      float: left;
+      width: 100px;
+      font-weight: bold;
+    }
+
+    .info {
+      float: left;
+      width: 66%;
+    }
+
+    .top-buttons {
+      width: 100%;
+    }
+
+  }
+
+  .top-buttons {
+    overflow: hidden;
+  }
+
+  .pagination {
+    float: left;
+    position: relative;
+    top: 0;
+  }
+  .divTableRow .divTableCell:nth-child(2){
+    width: 309px
+  }
+}
+

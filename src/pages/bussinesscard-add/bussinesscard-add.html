@@ -1,0 +1,137 @@
+<!--
+  Generated template for the BussinesscardAddPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation .
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title> Add business card  </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!-- <div class="container">
+    <div class="edit_box">
+      <div class="form_area">
+    
+          <ion-list>
+            
+            <input style="display: none"  type="file" (change)="onFileChanged($event)" #fileInput> 
+            <button (click)="fileInput.click()">Select File</button>
+            
+            <button (click)="upload_img()"  class="log-in-bt" >Upload!</button>
+            
+          
+          
+             
+          </ion-list>
+         
+         
+          <div class="btn_area">
+           
+            <button ion-button class="delete-bt" type="button" (click)="back_to_list()" >Cancel</button>
+          </div>
+       {{camcardresp}}
+      </div>
+    </div>
+  </div> -->
+
+  <div class="container">
+    <div class="container">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div class="profile-image-wrap">
+              <div class="profile-pic">
+                  <div *ngIf="base64textString !=''" >
+                      
+                        <img src="{{base64textString}}" alt="">
+                      </div>
+                      <div *ngIf="base64textString ==''" >
+                        
+                        <img  src="assets/imgs/card_profile_img.png" alt="">
+                        </div>
+                  
+
+                  <input style="display: none"  type="file" accept="image/*" (change)="onFileChanged($event)" #fileInput>
+                <span (click)="fileInput.click()" style="cursor: pointer;"> <ion-icon ios="md-create" md="md-create"></ion-icon></span>
+              </div>
+            </div>
+            <div class="profile-form-wrap">
+              <ion-list>
+                  <div class="static_col">
+                    <ion-item>
+                      <ion-input type="text" name="customerFirstName" placeholder="First name" [(ngModel)]="user.firstName"></ion-input>
+                      <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-1.png" alt=""></ion-label>
+                    </ion-item>
+                  </div>
+                  <div class="static_col">
+                    <ion-item>
+                      <ion-input type="text" name="customerLastName" placeholder="Last name" [(ngModel)]="user.lastName"></ion-input>
+                      <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-1.png" alt=""></ion-label>
+                    </ion-item>
+                  </div>
+                  <div class="static_col">
+                    <ion-item>
+                      <ion-input type="email" name="customerEmail" placeholder="Email" [(ngModel)]="user.email"></ion-input>
+                      <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-6.png" alt=""></ion-label>
+                    </ion-item>
+                  </div>
+                  <div class="static_col">
+                    <ion-item>
+                      <ion-input type="text" name="company" placeholder="Company" [(ngModel)]="user.company"></ion-input>
+                      <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-2.png" alt=""></ion-label>
+                    </ion-item>
+                  </div>
+                  <!-- <div class="static_col">
+                    <ion-item>
+                      <ion-input type="text" value="Logo enterprise"> </ion-input>
+                      <ion-label class="mail-icon-wrap"><img src="assets/imgs/lock.png" alt=""></ion-label>
+                    </ion-item>
+                  </div> -->
+                  <div class="static_col">
+                    <ion-item>
+                      <ion-input name="customerPosition" placeholder="Position" [(ngModel)]="user.position"></ion-input>
+                      <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-3.png" alt=""></ion-label>
+                    </ion-item>
+                  </div>
+                  <div class="static_col">
+                    <ion-item>
+                      <ion-input type="number" name="customerMobile" placeholder="Mobile" [(ngModel)]="user.mobile"></ion-input>
+                      <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-4.png" alt=""></ion-label>
+                    </ion-item>
+                  </div>
+                  <div class="static_col">
+                    <ion-item>
+                      <ion-input  type="number" name="customerPhone" placeholder="Phone" [(ngModel)]="user.phone"></ion-input>
+                      <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-5.png" alt=""></ion-label>
+                    </ion-item>
+                  </div>
+                  <div class="static_col">
+                    <ion-item class="texta">
+                        <ion-textarea style="resize: none;" name="remarks" [(ngModel)]="user.remarks" placeholder="Remarks" ></ion-textarea>
+                      <ion-label class="address-icon-wrap"><img src="assets/imgs/address.png" alt=""></ion-label>
+                    </ion-item>
+                  </div>
+                  <div class="static_col" style="display: none;">
+                    <ion-item><ion-input name="customerPosition"  placeholder="Position" ></ion-input></ion-item>
+                  </div>
+                </ion-list>
+                
+              <button ion-button class="log-in-bt" (click)="add_new_card()" type="submit">Add</button>
+            </div>
+          </ion-col>  
+        </ion-row>
+      </ion-grid>
+  
+    </div>
+  </div>
+  <ion-fab right bottom class="home-menu"> 
+    <button ion-fab color="danger" (click)="got_to_home()"><ion-icon ios="ios-home-outline" md="ios-home-outline"></ion-icon></button>
+  </ion-fab>
+</ion-content>
+

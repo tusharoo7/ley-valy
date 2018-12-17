@@ -1,0 +1,35 @@
+page-trackfilepreview {
+  .track-preview-wrap {
+    text-align: center;
+    text-align: center;
+    padding-top: 4%;
+
+    a {
+      background: #043ab4;
+      width: 20%;
+      height: 50px;
+      border-radius: 42px;
+      font-size: 16px;
+      color: #fff;
+      text-transform: uppercase;
+      margin-top: 18px;
+      text-align: center;
+      line-height: 45px;
+      // font-weight: 600;
+      margin: 47px auto 0;
+      display: inline-block;
+
+      @media(max-width: 767px) {
+        width: 100%;
+      }
+    }
+
+    h2 {
+      text-align: center
+    }
+
+    .send-bt {
+      margin-top: 8px
+    }
+  }
+}

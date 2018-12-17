@@ -1,0 +1,139 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Signup</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bg">
+  <div class="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <div class="log-in-form-cont">
+            <div class="profile-pic">
+              <!-- ===================== -->
+               <div *ngIf="base64textString !=''" >
+                  <img src="{{base64textString}}" alt="">
+                </div>
+                <div *ngIf="base64textString ==''" >
+                    <img src="assets/imgs/profile-default.png" alt="">
+                  </div>
+                  <!-- <div  *ngIf="data.image">
+                    
+                      <img src="{{data.image}}" >
+                      
+                </div> -->
+                
+              <!-- ===================== -->
+               <input style="display: none"  type="file" accept="image/*" (change)="onFileChanged($event)" #fileInput> 
+              <!-- <input style="display: none"  type="file" accept="image/*" (change)="fileChangeListener($event)" #fileInput> -->
+            <span (click)="fileInput.click()"> <ion-icon ios="md-create" md="md-create"></ion-icon></span>
+
+            </div>
+
+            <!-- <div class="file-upload">
+              <span class="text">upload</span>
+              <input id="custom-input" type="file" (change)="fileChangeListener($event)">
+          </div> -->
+          <!-- <img-cropper   id="cropperbox" style="display: none;" #cropper [image]="data" [settings]="cropperSettings"> -->
+        
+         
+        <!-- </img-cropper>
+        <div id="savebutton" style="display: none;">
+            <ion-icon (click)="saveimage()"><i class="fa fa-save" style="font-size:48px;color:green"></i></ion-icon>
+        </div> -->
+        
+        
+          <br>
+
+         
+          <!-- <span class="result rounded" *ngIf="data.image" >
+              <img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
+          </span> -->
+
+          
+            <form (ngSubmit)="registration_at_leyvalley()">
+            <ion-list>
+              <div class="static_col">
+                <ion-item>
+                  <ion-input type="text" name="fname" maxlength="50" placeholder="First name" [(ngModel)]="user.fname"
+                   ></ion-input>
+                   <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-1.png" alt=""></ion-label>
+                </ion-item>
+              </div>
+              <div class="static_col">
+                <ion-item>
+                  <ion-input type="text" name="lname"  maxlength="50" placeholder="Last name" [(ngModel)]="user.lname"
+                  ></ion-input>
+                  <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-1.png" alt=""></ion-label>
+                </ion-item>
+              </div>
+              <div class="static_col">
+                <ion-item>
+                  <ion-input type="text" name="enterprice"  maxlength="100" placeholder="Enterprise" [(ngModel)]="user.enterprice"></ion-input>
+                  <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-2.png" alt=""></ion-label>
+                </ion-item>
+              </div>
+              <div class="static_col">
+                <ion-item>
+                  <ion-input type="text" name="email"  maxlength="250" placeholder="Email" [(ngModel)]="user.email"></ion-input>
+                  <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-6.png" alt=""></ion-label>
+                </ion-item>
+              </div>
+              <div class="static_col">
+                <ion-item>
+                  <ion-input type="password" name="password"  maxlength="15" placeholder="Password" [(ngModel)]="user.password"></ion-input>
+                  <ion-label class="mail-icon-wrap"><img src="assets/imgs/lock.png" alt=""></ion-label>
+                </ion-item>
+              </div>
+              <div class="static_col">
+                <ion-item>
+                  <ion-input type="text" name="position"  maxlength="100" placeholder="Position" [(ngModel)]="user.position"></ion-input>
+                  <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-3.png" alt=""></ion-label>
+                </ion-item>
+              </div>
+              <div class="static_col">
+                <ion-item>
+                  <ion-input type="number" name="mobile" placeholder="Mobile"  maxlength="15" [(ngModel)]="user.mobile"></ion-input>
+                  <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-4.png" alt=""></ion-label>
+                </ion-item>
+              </div>
+              <div class="static_col">
+                <ion-item>
+                  <ion-input type="number" name="phone"  maxlength="15" placeholder="Phone" [(ngModel)]="user.phone"></ion-input>
+                  <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-5.png" alt=""></ion-label>
+                </ion-item>
+              </div>
+             
+            </ion-list>
+            <button ion-button class="log-in-bt" type="submit" >Sign Up</button>
+
+
+            </form>
+            <div class="or-wrap"><span>OR</span></div>
+            <ion-row>
+              <ion-col col-6> <button class="linkedin-bt"><div class="linkedin-bt-icon-wrap"><img src="assets/imgs/linkedin.png" alt=""></div>Sign up with Linkedin </button></ion-col>
+              <ion-col col-6> <button class="linkedin-bt sign-up-bt" (click)="gosignin()"><div class="linkedin-bt-icon-wrap"><img src="assets/imgs/sign-up.png" alt=""></div>Sign In </button></ion-col>
+              <!-- <ion-col col-12> <button class="sign-up-bt-bt" (click)="gosignup()">Sign up</button></ion-col> -->
+            </ion-row>
+
+
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <!-- <button ion-button secondary menuToggle>Toggle Menu</button>  -->
+</ion-content>
+<ng-template #default>
+     <img src="assets/imgs/pro_pic.jpeg" alt="">
+  </ng-template>

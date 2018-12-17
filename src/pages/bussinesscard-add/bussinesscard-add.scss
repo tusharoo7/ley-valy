@@ -1,0 +1,183 @@
+page-bussinesscard-add {
+  .bg {
+    background: url(../assets/imgs/login-signup_bg.png) no-repeat;
+    background-size: cover;
+    background-position: bottom;
+  }
+
+  .profile-pic {
+    position: relative;
+    width: 200px;
+    height: 112px;
+    margin: 4% auto;
+
+    div {
+      width: 200px;
+      height: 112px;
+      overflow: hidden;
+      border: 2px solid #ccc;
+
+      /*FOR PROFILE PIC CENTER*/
+      img {
+        width: 100%;
+        transform: translateY(-50%);
+        top: 50%;
+        position: relative;
+        height: 100%;
+      }
+    }
+
+    span {
+      position: absolute;
+      left: 40%;
+      bottom: -11px;
+      border: 1px solid #ccc;
+      background: #fff;
+      width: 40px;
+      height: 40px;
+    }
+
+    ion-icon {
+      font-size: 27px;
+      color: #333;
+      margin: 5px 5px 5px 11px;
+    }
+  }
+
+  .profile-form-wrap {
+    width: 70%;
+    margin: 3% auto;
+
+    .log-in-bt {
+      background: #043ab4;
+      width: 40%;
+      height: 50px;
+      border-radius: 42px;
+      font-size: 16px;
+      color: #fff;
+      text-transform: uppercase;
+      margin-top: 18px;
+      text-align: center;
+      line-height: 45px;
+      // font-weight: 600;
+      margin: 47px auto 0;
+      display: block;
+    }
+  }
+
+
+  .text-input-md,
+  .text-input-ios {
+    padding: 0
+  }
+
+  .edit-pro {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    z-index: 999;
+    background: none;
+
+    img {
+      width: 31px;
+    }
+  }
+
+  ion-label {
+    width: 62px;
+    height: 62px;
+    //background: #f4f4f4;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    // border: 1px solid #ccc;
+    position: relative;
+    margin: 13px 8px 13px 0 !important;
+
+    img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 18px;
+      opacity: 0.3;
+    }
+  }
+
+  .profile-image-wrap {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .static_col {
+    width: 48%;
+    float: left;
+    margin: 0 1%;
+  }
+
+  @media(max-width:767px) {
+    .static_col {
+      width: 100%;
+      float: none;
+      margin: 0;
+    }
+
+    .log-in-bt {
+      width: 100% !important;
+    }
+
+    .profile-form-wrap {
+      width: 100%;
+    }
+
+    ion-label {
+      width: 42px;
+      height: 42px;
+      margin: 11px 8px 13px 0 !important;
+    }
+
+    .profile-form-wrap {
+      .log-in-bt {
+        height: 40px;
+        margin-top: 0;
+      }
+    }
+
+    .profile-pic {
+      margin-bottom: 30px;
+    }
+
+  }
+
+  .label-md {
+    margin: 13px 0 13px 0 !important;
+  }
+
+  .text-input-md,
+  .text-input-ios {
+    margin: 13px 0;
+  }
+
+  .item-md,
+  .item-ios {
+    border: 1px solid #ccc;
+  }
+
+  .list-md {
+    overflow: hidden;
+  }
+  .item.item-textarea{align-items: center;   }
+  textarea.text-input {
+    display: block; height: 18px;
+}
+textarea::-webkit-inner-spin-button, 
+textarea::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+} 
+}

@@ -1,0 +1,111 @@
+<!--
+  Generated template for the AddtrackPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add file</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class="container">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+             
+              <div class="profile-form-wrap">
+                <ion-list>
+                    <div class="static_col">
+                      <h5>Customer name</h5>
+                      <ion-item>
+                        <ion-input type="text" name="customerFirstName" [(ngModel)]="customerFirstName" placeholder="Customer name" disabled ></ion-input>
+                        <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-1.png" alt=""></ion-label>
+                      </ion-item>
+                    </div>
+                    <div class="static_col">
+                        <h5>Customer email</h5>
+                      <ion-item>
+                        <ion-input type="email" name="customeremail" [(ngModel)]="customeremail" placeholder="Customer email" disabled></ion-input>
+                        <ion-label class="mail-icon-wrap"><img src="assets/imgs/icon-6.png" alt=""></ion-label>
+                      </ion-item>
+                    </div>
+                    <div class="static_col">
+                        <h5>Title</h5>
+                      <ion-item>
+                        <ion-input type="text" name="titel" [(ngModel)]="titel" placeholder="Title"></ion-input>
+                        <ion-label class="mail-icon-wrap"><img src="assets/imgs/name.png" alt=""></ion-label>
+                      </ion-item>
+                    </div>
+                    <!-- <div class="static_col">
+                      <ion-item>
+                        <ion-input type="text" value="Logo enterprise"> </ion-input>
+                        <ion-label class="mail-icon-wrap"><img src="assets/imgs/lock.png" alt=""></ion-label>
+                      </ion-item>
+                    </div> -->
+                    <div class="static_col">
+                        <h5>Expiration date</h5>
+                      <ion-item>
+                        <ion-datetime displayFormat="DD-MM-YYYY"  id="txtDate"  name="expirationdate" [(ngModel)]="expirationdate" placeholder="Expiration date" max="2030-12-31" [min]="minDate"></ion-datetime>
+
+                        <!-- <ion-datetime name="expirationdate" [(ngModel)]="expirationdate" displayFormat="DD-MM-YYYY" pickerFormat="DD-MM-YYYY"  placeholder="Expiration date" max="2030-12-31" min="2018-04-12" ></ion-datetime> -->
+
+                         <!-- <ion-input type="date" id="txtDate"  name="expirationdate" [(ngModel)]="expirationdate" placeholder="Expiration date"></ion-input>  -->
+                        <ion-label class="mail-icon-wrap"><img src="assets/imgs/calendar.png" alt=""></ion-label>
+                      </ion-item>
+                    </div>
+                    
+                    <div class="static_col">
+                        <div class="output"> {{ file_check }} </div>
+                        <h5>File</h5>
+                      <div class="file-upload">
+                        <input (change)="onFileChanged($event)" type="file"   accept="application/docs, application/vnd.ms-excel, application/vnd.ms-powerpoint,
+                        text/plain, application/pdf,image/*" capture="filesystem"  multiple="multiple"> 
+                        <!-- <input 
+                        type="file"
+                        class="form-control-file"
+                        id="sizeRestrictedFileInput"
+                        name="sizeRestrictedFile"
+                        #sizeRestrictedFileInput="ngModel"
+                        #sizeRestrictedHtmlElement
+                        [(ngModel)]="sizeRestrictedFile"
+                        [ng2FileSize]="sizeRestrictions"
+                        [fileSizeErrorMsg]="errorMessage"
+                        #ng2fsd="ng2FileSizeDirective"                    
+                    /> -->
+                        
+                      </div>
+                      <ion-item>
+                        <ion-input type="text" name="customerEmail" placeholder="File"></ion-input>
+                        
+                        <ion-label class="mail-icon-wrap"><img src="assets/imgs/upload.png" alt=""></ion-label>
+                      </ion-item>
+
+                      
+                    </div>
+
+                  
+                    <div class="static_col" style="display: none;">
+                      <ion-item><ion-input name="customerPosition"  placeholder="Position"></ion-input></ion-item>
+                    </div>
+                  </ion-list>
+                  
+                <button class="log-in-bt" type="submit" (click)="gototrackpreview()">Next</button>
+
+                
+              </div>
+            </ion-col>  
+          </ion-row>
+        </ion-grid>
+    
+      </div>
+
+      <ion-fab  right bottom class="home-menu"> 
+        <button  ion-fab color="danger" (click)="got_to_home()"><ion-icon ios="ios-home-outline" md="ios-home-outline"></ion-icon></button>
+      </ion-fab>
+</ion-content>

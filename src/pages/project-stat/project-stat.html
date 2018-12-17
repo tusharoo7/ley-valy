@@ -1,0 +1,83 @@
+<!--
+  Generated template for the ProjectStatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+  CONTACT	DATE D'ACCÈS	TEMPS DE LECTURE	POURCENTAGE LU	TÉLÉCHARGÉ	APPAREIL	DÉTAILS
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Statistiques</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="container">
+    <div class="bussiness-card-top-box">
+        <!-- <h2>  Bar Chart</h2> -->
+        
+
+        <!-- <div id="barchart"></div> -->
+        
+    <div class="internert_wrap">
+       <h2 style="text-align: center"><b>{{projectname}}</b></h2>
+        <div class="internet_table">
+        <table>
+          <tbody>
+            <tr>
+                						
+              <th width="150">Contact</th>
+              <th  width="120">Date d'accés </th>
+              <th>Temps de lecture</th>
+              <th>Pourcentage lu</th>
+              <th width="140">Téléchargé</th>
+              <th width="140">Apparetl</th>
+              <th width="140">Details</th>
+            </tr>
+            <tr  *ngFor ="let data of tik_list_stat">
+                <td>{{data.title}}</td>
+                <td>
+                  <p>{{data.access_date | date:'medium'}}</p>
+                  
+                </td>
+                <td>
+                  <p>{{data.total_time|milisecondtotime}}</p>
+                  
+                </td>
+                <td><span class="circle">{{data.percentage_read}}%</span></td>
+                <td *ngIf="data.downloaded == false"><i class="fa fa-times grid-icon"></i></td>
+                        <td *ngIf="data.downloaded == true"><i class="fa fa-check" aria-hidden="true"></i>
+                        </td>
+                        <td>
+                          <span ng-if="data.company_geoloc_activated" popover-title="Location" popover-trigger="'mouseenter'" popover-placement="bottom" popover-append-to-body="true" uib-popover-template="'views/modals/platformPopover.html'" class="ng-binding ng-scope">
+              <i class="fa fa-desktop"></i>
+              n°1
+              </span><!-- https://api.tilkee.com/v2/projects/333761/connexions/1171867 end ngIf: row.company_geoloc_activated -->
+              <!-- ngIf: !(row.company_geoloc_activated) -->
+              <span>
+              <img ng-src="assets/imgs/linux.png" tooltip-append-to-body="true" uib-tooltip="Linux" style="height:24px; width:24px;" src="assets/imgs/linux.png">
+              <img ng-src="assets/imgs/chrome.png" tooltip-append-to-body="true" uib-tooltip="Chrome" style="height:24px; width:24px;" src="assets/imgs/chrome.png">
+              </span>
+                        </td> 
+                        <td (click)="view_stat_details(data.id,projectname,data.access_date,data.total_time,data.title)">Show</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div></div>
+    </div>
+      <!-- <span tooltip="content to be shown in the tooltip"
+      [tooltipDisabled]="false"
+      [tooltipAnimation]="true"
+      tooltipPlacement="top">
+    element on which this tooltip is applied.
+</span> -->
+
+<ion-fab right bottom class="home-menu"> 
+    <button ion-fab color="danger" (click)="got_to_home()"><ion-icon ios="ios-home-outline" md="ios-home-outline"></ion-icon></button>
+  </ion-fab>
+  
+</ion-content>

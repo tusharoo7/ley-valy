@@ -1,0 +1,97 @@
+<!--
+  Generated template for the TilkStatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Temps de lecture</ion-title>
+    <!-- <button  (click)="dismiss()" class="canc-bt">Cancel <ion-icon name="md-close" showWhen="android,windows"></ion-icon></button> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <div class="container">
+     
+        <div class="bussiness-card-top-box">
+            <div class="upper_block">
+                <ul>
+                  <li><b>Project name:</b> <span>{{projectname}}</span></li>
+                  <li><b>Date of access:</b> <span>{{pdate | date:'medium'}}</span></li>
+                  <li><b>Contact name:</b> <span>{{titel}}</span></li>
+                  <li><b>Duration:</b> <span>{{stime | milisecondtotime}}</span></li>
+                </ul>
+        
+              </div>
+        <ion-grid no-padding>
+            <ion-row>
+
+                <ion-col col-12>
+                  <div class="bussiness-table-wrap">
+                    <table class="bussiness-table">
+                      <thead>
+                          <tr>
+                              <th >Date</th>
+                              <th >Document</th>
+                              <!-- <th >Reading time</th> -->
+                              <th>Temps de lecture</th> 
+                              <!-- <th >SHOW</th> -->
+                              
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor ="let data of tik_list_stat">
+                            
+                              <td>{{data.created_at | date: 'medium'  }}</td>
+                              <!-- <td>{{data.totaltime | date:'mmss' }}</td> -->
+                              <td *ngIf="data.title==''">
+                              {{data.item.title}} 
+
+                              <div *ngIf="data.pages!=undefined">
+                                  <p *ngFor ="let pagedetails of data.pages">
+                                      <span >page: {{pagedetails.page}}</span>
+                                  </p>
+                              </div>
+                              
+                            </td>
+
+                             <td *ngIf="data.title != '' "
+                            >
+                            {{data.title}}
+                            <div *ngIf="data.pages!=undefined">
+                                <p *ngFor ="let pagedetails of data.pages">
+                                    <span >page: {{pagedetails.page}}</span>
+                                </p>
+                            </div>
+                            
+                          </td> 
+                          <!-- <td *ngIf="data.doc_name != '' " >
+                         
+                          {{data.doc_name}}
+                        </td>  -->
+                          
+                              <!-- <td>{{data.total_time | date:'SSS'}}</td> -->
+                                
+                              <td>{{data.total_time | milisecondtotime}} </td>
+                               
+                              <!-- <td><a target="_blank" href="file://{{data.content_url}}"></a>Show</td>  -->
+                            </tr>
+                      </tbody>
+                  
+                    </table>
+                  </div>
+                </ion-col>
+              </ion-row>
+                  </ion-grid>
+                </div>
+                  </div>
+    <!-- <ion-tags-input [(ngModel)]="tags" (onChange)="onChange($event)"></ion-tags-input> -->
+  
+  </ion-content>
+
+

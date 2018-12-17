@@ -1,0 +1,15 @@
+page-payment {
+    .payment-wrap {
+      width: 30%;
+      margin: 6% auto;
+      @media(max-width:767px){
+        width: 100%;
+      }
+    }
+  
+    .pricing-plan {
+      @include d-bt;
+      width: 100%; margin-bottom: 13px;
+    }
+  }
+  

@@ -1,0 +1,240 @@
+ // part 1 : hunter data request and response  { start}
+      this.globalservice.search_hunter_contact(this.user).subscribe((resp) => {
+        loadingPop.dismiss();
+        console.log(resp);
+        if(resp.data.first_name !=null && resp.data.last_name !=null && resp.data.email!=null  )
+        {
+          //'phone_number' :resp.data.phone_number.split('').join(' '),
+           this.hunter ={
+                          'first_name' :resp.data.first_name ,
+                          'last_name' :resp.data.last_name,
+                          'linkedin_url' :resp.data.linkedin_url,
+                        
+                          'email':resp.data.email,
+                          'domain':resp.data.domain,
+                          'status':'sucess'
+                        }
+             if(resp.data.company!=null) 
+             {
+               this.hunter['company']=resp.data.company;
+             }   
+             else
+             {
+              this.hunter['company']='-';
+             }  
+             
+             if(resp.data.position!=null) 
+             {
+               this.hunter['position']=resp.data.position;
+             }   
+             else
+             {
+              this.hunter['position']='-';
+             } 
+
+             if(resp.data.phone_number!=null && resp.data.phone_number!="" ) 
+             {
+               //console.log('fff')
+               this.hunter['phone_number']='+'+resp.data.phone_number.split('').join(' ');
+             }   
+             else
+             {
+              //console.log('sddsdsfff')
+              this.hunter['phone_number']='-';
+             } 
+        }
+       else
+      {
+        this.hunter ={
+                      'first_name' :'' ,
+                      'last_name' :'',
+                      'linkedin_url' :'',
+                      'email':'',
+                      'domain':'',
+                      'status':'failure'
+                    }
+                    this.hunter['phone_number']='-';
+                    this.hunter['company']='-';
+                    this.hunter['position']='-';          
+       }
+//        this.user = {
+//         'first_name':'',
+//         'last_name':'',
+//         'domain':''
+// }
+ }, (err) => 
+ {
+  this.helperservice.sendalertmessage('bottom',err.details);
+  loadingPop.dismiss();
+}); 
+
+     //           hunter data request and response  { end}
+
+     // part 2 : lusha data request and response  { start}
+
+     this.globalservice.search_lusha_contact(this.user).subscribe((resp) => {
+      loadingPop.dismiss();
+      console.log(resp);
+    // this.navCtrl.push(HomePage);
+    //    if (resp.responseStatus.STATUS=="SUCCESS")
+    //    {
+        
+    //     this.helperservice.sendalertmessage('bottom',resp.responseStatus.MESSAGE);   
+    //     this.navCtrl.push(BussinesscardPage); 
+    //   }
+    //  else
+    //     {
+    //       this.helperservice.sendalertmessage('bottom',resp.responseStatus.MESSAGE);
+    //    }
+}, (err) => 
+{
+this.helperservice.sendalertmessage('bottom',"oops..! internal error occurred!");
+}); 
+//      //           lusha data request and response  { end}
+
+//       //   let that = this;
+//   fetch('https://api.lusha.co/person?firstName=Rob&lastName=Taylor&company=intercom',
+  
+//   { method: 'get',
+//   body: '',
+//   mode: "no-cors", // no-cors, cors, *same-origin
+//    headers: {
+//      "Access-Control-Allow-Origin": "*",
+//       "api_key": "802484646f648fb5030ab214348cb537",
+//  },
+//   cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+// })
+// .then(function(response) {
+//   return response.json();
+//   //console.log(response.json());
+// })
+// .then(function(myJson) {
+//   console.log("ss") ;
+//  // this.camcardresp = JSON.stringify(myJson);
+//   console.log(JSON.stringify(myJson));
+       
+//   //return myJson;
+
+//  });
+
+public expirationdate:  string = new Date().toISOString() + 1;'
+ //public expirationdate;
+  month: number
+  day: number;
+  public project: any;
+  public cardid: any;
+  image_base64_raw: any;
+  public projedct_name :string
+  added_project_in_tilkee_id: any;
+  mydate: any; 
+  minDate: string = new Date(new Date().getTime()+(10820200333)).toISOString();
+  //expirationdate
+  constructor(public globalservice: GlobalValueProvider, public helperservice: HelperService, public navCtrl: NavController, public navParams: NavParams) {
+    this.customerFirstName = this.navParams.get('customerfirstname') + " " + this.navParams.get('customerlastname');
+    this.customeremail = this.navParams.get('customeremail')
+    this.tilk_proj_id = this.navParams.get('tilkee_project_id')
+    this.cardid = this.navParams.get('cardid')
+    this.projedct_name = this.customerFirstName+'-'+this.customeremail;
+    console.log(this.projedct_name);
+   // this.expirationdate= moment().add('days', 1).format();
+    //<name of customer>-<name of email>
+
+    https://api.tilkee.com/v2/projects/359130/stats?tokens=
+
+      this.globalservice.statsofaproject(this.projectid).subscribe(
+      (response_two)=>{
+
+        var data = new google.visualization.DataTable();
+        // data.addColumn('string', 'name');
+        // data.addColumn('datetime', 'duration');
+         data.addColumn('string', 'Documents');
+          data.addColumn('datetime', 'Times');
+ 
+  console.log([
+      ['foo', new Date(0, 0, 0, 7, 23, 0, 0)],
+      ['bar', new Date(0, 0, 0, 5, 56, 0, 0)],
+      ['baz', new Date(0, 0, 0, 29, 20, 0, 0)],
+      ['cad', new Date(0, 0, 0, 14, 45, 0, 0)]
+    ])
+  var myrow =[]
+  for (let barchartdata of response_two.contents){
+    let mytimeobj = this.converttime(barchartdata.total_time);
+   // console.log(mytimeobj.hour)
+   // console.log(mytimeobj.minutes)
+   // console.log(new Date(0, 0, 0, mytimeobj.hour, mytimeobj.minutes, mytimeobj.seconds, 0))
+   // data.addRow([ barchartdata.doc_name ,  new Date(0, 0, 0, 5, 56, 0, 0) ]);
+
+    myrow.push([ barchartdata.doc_name ,new Date(0, 0, 0, mytimeobj.hour, mytimeobj.minutes, mytimeobj.seconds, 0)])
+  
+}
+console.log(myrow);
+data.addRows(myrow)
+  var formatter = new google.visualization.DateFormat({pattern: 'hh:mm:ss'});
+  formatter.format(data, 1);
+       
+      //    for (let barchartdata of response_two.contents){
+      //     console.log(barchartdata.doc_name)
+      //     console.log(this.converttime(barchartdata.total_time))
+          
+      //     data.addRow([this.converttime(barchartdata.total_time), barchartdata.total_time]);
+      // }
+      // data.addRows([
+      //   [ new Date(0, 0, 0, 7, 23, 0, 0) ,'foo'],
+      //   [new Date(0, 0, 0, 5, 56, 0, 0), 'bar'],
+      //   [ new Date(0, 0, 0, 29, 20, 0, 0),'baz'],
+      //   [ new Date(0, 0, 0, 14, 45, 0, 0),'cad']
+      // ]);
+      // var formatter = new google.visualization.DateFormat({pattern: 'hh:mm:ss'});
+      // formatter.format(data, 1);
+      // var options = {
+      //   animation: {
+      //          startup: true,
+      //          duration: 1000 ,
+      //          easing: 'out'
+      //        },
+      //   chart: {
+      //     title: 'Project statistic',
+      //     subtitle: 'Duration'
+      //   },
+      //   width: 900,
+      //   height: 500,
+      //   axes: {
+      //     x: {
+      //     0: {side: 'bottom'}
+      //     },
+      //       }
+ 
+      //       };
+
+        //     var chart = new google.visualization.ColumnChart(
+        //       document.getElementById('barchart'));
+      
+        //     chart.draw(data, options);
+          
+        // console.log(response_two)
+        new google.visualization.ColumnChart(document.getElementById('barchart')).
+        draw(data, {
+          width:600,
+          height:400
+        });
+    //     this.columnChartData ={
+    //       chartType: 'ColumnChart',
+         
+    //         dataTable: [
+    //   ['Document', 'Time'],
+    //   ['Germany', 700, ],
+    //   ['USA', 300, ],
+    //   ['Brazil', 400, ],
+    //   ['Canada', 500, ],
+    //   ['France', 600, ],
+    //   ['RU', 800, ]
+    // ],
+    // options: {title: 'Countries'}
+    //     }
+       
+      },
+      (error_two)=>{
+
+      }
+
+    );

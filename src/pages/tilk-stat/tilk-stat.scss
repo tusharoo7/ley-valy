@@ -1,0 +1,141 @@
+page-tilk-stat {
+  .bussiness-table-wrap {
+    overflow: auto;
+  }
+
+  // .bussiness-table tr:nth-child(even) {
+  //   background-color: #f1f1f1;
+  // }
+
+  .w3-bordered tr,
+  .bussiness-table tr {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .bussiness-table td,
+  .bussiness-table th {
+    padding: 14px 8px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+    
+  }
+
+  .bussiness-table th {
+    background: $blue;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  table.bussiness-table {
+    width: 100%;
+  }
+
+  .bussiness-table {
+    border: 1px solid #ccc;
+  }
+
+  .bussiness-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    display: table;
+  }
+
+  button.canc-bt {
+    position: absolute;
+    right: 7px;
+    top: 13px;
+    /* width: 120px; */
+    height: 30px;
+    background: #ff1a1a;
+    color: #fff;
+    padding: 0 14px;
+
+    ion-icon {
+      margin-left: 8px;
+    }
+  }
+
+  .fileupload-in-form-cont {
+    text-align: center;
+
+    .fileupload-in-bt {
+      background: #4dc3ff;
+      width: 100%;
+      height: 45px;
+      border-radius: 35px;
+      font-size: 16px;
+      color: #fff;
+      text-transform: uppercase;
+      margin-top: 18px;
+      text-align: center;
+      line-height: 45px;
+      font-weight: 600;
+    }
+
+    .fileuploadone-in-bt {
+      background: #999999;
+      width: 100%;
+      height: 45px;
+      border-radius: 35px;
+      font-size: 16px;
+      color: #fff;
+      text-transform: uppercase;
+      margin-top: 18px;
+      text-align: center;
+      line-height: 45px;
+      font-weight: 600;
+    }
+  }
+
+  .bussiness-card-top-box {
+    width: 825px;
+    margin: 0 auto;
+    @media(max-width:767px) {
+      width: 100%
+    }
+  }
+
+  .bussiness-table-wrap th {
+    background: #8ca9e0;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+    @media(max-width:767px) {
+      font-size: 12px;
+    }
+  }
+
+  .bussiness-table-wrap td p {
+    font-size: 16px;
+  }
+
+  .bussiness-table-wrap {
+    border: 1px solid #d1d1d1;
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+    td{color: #636262}
+  }
+  .upper_block {
+    border: 1px solid #ccc;
+    overflow: hidden;
+    padding: 22px 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+  .upper_block ul{list-style: none;
+    margin: 0 0 0 10px;
+    padding: 0 0;}
+  .upper_block li{width: 50%;
+    float: left;
+    margin-bottom: 12px;
+  @media(max-width:767px){
+    width: 100%;
+  }
+  }
+}

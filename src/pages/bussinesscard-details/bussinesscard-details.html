@@ -1,0 +1,123 @@
+<!--
+  Generated template for the BussinesscardDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>Business card details</ion-title>
+      
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    
+    <div class="container">
+      <div class="bussiness-card-top-box">
+  
+        <ion-grid>
+          <ion-row>
+            <ion-col col-12>
+                <div class="trac-doc-wrap">
+                    <h2>Card details</h2>
+                    <div class="icon edit-del-wrap">
+                        <!-- <div class="edit-bt"><span></span></div>
+                        <div class="del-bt"><span></span></div>   -->
+                        <div class="text-right">
+                            <span (click)="edit_card(cardid)" class="edit"><span></span></span>
+                          </div>
+                          <div class="text-right">
+                            <span (click)="delete_this(cardid)" class="delete"><span></span></span>
+                          </div>
+                      </div>
+                  </div>
+              <div class="card_blok">
+                <ion-grid>
+                  <ion-row>
+                    
+                    <ion-col col-4 col-xs-12 no-padding class="card_area">
+                      <img src="{{card_image}}" alt="" imageViewer />
+                    </ion-col>
+                    <ion-col col-6 no-padding class="card_details contact_info">
+                      <h1>{{card_firstName}} {{card_lastName}}</h1>
+                      <p>{{card_position}}<br> {{card_company}}</p>
+                    <p class="tel">{{card_mobile}}</p>
+                    <p class="tel">{{card_phone}}</p>
+                    <p class="mail">{{card_email}}</p>
+                    </ion-col>
+  
+  
+                  </ion-row>
+                </ion-grid>
+                
+              </div>
+  
+  
+  
+            </ion-col>
+  
+  
+  
+            <ion-col col-12>
+              <div class="internert_wrap">
+                <div class="trac-doc-wrap">
+                  <h2>Track document</h2>
+                  <ion-icon style="cursor: pointer;" (click)="addtrack()" name="add-circle" ios="ios-add-circle-outline" md="ios-add-circle-outline"></ion-icon>
+                </div>
+                <div class="internet_table">
+                <table>
+                  <tbody>
+                    <tr>
+                      <th sty width="128">Interet</th>
+                      <th width="268">Nom</th>
+                      <th width="127">Duree</th>
+                      <th width="140">Dernier Acces</th>
+                      <th width="140">Connexion</th>
+                    </tr>
+                  
+                   
+                    <tr (click)="getstat(data.project_id,data.project_name)" [ngClass]="tik_list_stat!='' ? 'showcell' : 'hidecell'"  *ngFor ="let data of tik_list_stat">
+                       
+                            <td width="128"><span class="circle">{{data.interest}}</span></td>
+                            <td width="268">
+                              <p>{{data.project_name}}</p>
+                              <!-- <p>{{card_firstName}} {{card_lastName}}</p> -->
+                            </td>
+                            <td width="127">{{data.total_time | milisecondtotime}}</td>
+                            <td width="140" *ngIf="data.last_sign_in_at!=null">{{ data.last_sign_in_at | dateformatter }}</td>
+                            <td width="140" *ngIf="data.last_sign_in_at==null"></td>
+                            <td width="140">{{data.nb_connections}} fois</td>
+                         
+                     
+                    </tr>
+                 
+                      <tr [ngClass]="tik_list_stat=='' ? 'showcell' : 'hidecell'">
+                        <td colspan="5">No project created</td>
+                      </tr>
+                        
+                  
+                 
+                      
+                    
+                  </tbody>
+                </table>
+              </div>
+              </div>
+            </ion-col>
+  
+          </ion-row>
+        </ion-grid>
+  
+      </div>
+    </div>
+    <ion-fab right bottom class="home-menu"> 
+      <button ion-fab color="danger" (click)="got_to_home()"><ion-icon ios="ios-home-outline" md="ios-home-outline"></ion-icon></button>
+    </ion-fab>
+    <!-- <button type="button" (click)="goToUrl()">Click me!</button>
+
+    <button type="button" (click)="goTonewUrl()">Click me!</button> -->
+  </ion-content>

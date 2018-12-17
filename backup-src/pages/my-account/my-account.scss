@@ -1,0 +1,151 @@
+page-my-account {
+    h1 {
+        text-align: center;
+        margin: 4% 0 6% !important;
+        display: block;
+      }
+    
+      .dash-box {
+        background: #ECEFF1;
+        padding: 40px 22px 22px;
+        border-radius: 6px;
+        text-align: center;
+        border: 1px solid rgb(224, 224, 224);
+        height: 206px;
+        margin: 0 8px 14px;
+        width: 97%;
+    
+        img {
+          width: 70px;
+          display: inline-block;
+        }
+    
+        h2 {
+          font-size: 16px;
+          text-transform: uppercase
+        }
+    
+        .row {
+          text-align: center;
+    
+          ion-col {}
+    
+        }
+    
+    
+      }
+    
+      .dash-list {
+        .row {
+          display: block;
+          text-align: center;
+        }
+    
+        [col-6] {
+          display: inline-block;
+          flex: none;
+          width: auto;
+          max-width: unset;
+          width: 46%;
+    
+    @media(max-width:767px){
+          width: 100%;
+        }
+        }
+      }
+    
+      /* Wobble Horizontal */
+      @-webkit-keyframes hvr-wobble-horizontal {
+        16.65% {
+          -webkit-transform: translateX(8px);
+          transform: translateX(8px);
+        }
+    
+        33.3% {
+          -webkit-transform: translateX(-6px);
+          transform: translateX(-6px);
+        }
+    
+        49.95% {
+          -webkit-transform: translateX(4px);
+          transform: translateX(4px);
+        }
+    
+        66.6% {
+          -webkit-transform: translateX(-2px);
+          transform: translateX(-2px);
+        }
+    
+        83.25% {
+          -webkit-transform: translateX(1px);
+          transform: translateX(1px);
+        }
+    
+        100% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+        }
+      }
+    
+      @keyframes hvr-wobble-horizontal {
+        16.65% {
+          -webkit-transform: translateX(8px);
+          transform: translateX(8px);
+        }
+    
+        33.3% {
+          -webkit-transform: translateX(-6px);
+          transform: translateX(-6px);
+        }
+    
+        49.95% {
+          -webkit-transform: translateX(4px);
+          transform: translateX(4px);
+        }
+    
+        66.6% {
+          -webkit-transform: translateX(-2px);
+          transform: translateX(-2px);
+        }
+    
+        83.25% {
+          -webkit-transform: translateX(1px);
+          transform: translateX(1px);
+        }
+    
+        100% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+        }
+      }
+    
+      .hvr-wobble-horizontal {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+      }
+    
+      .hvr-wobble-horizontal:hover,
+      .hvr-wobble-horizontal:focus,
+      .hvr-wobble-horizontal:active {
+        -webkit-animation-name: hvr-wobble-horizontal;
+        animation-name: hvr-wobble-horizontal;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+      }
+    
+      .dash-list {
+        width: 50%;
+        margin: 0 auto;
+    
+        @media(max-width:1024px){
+          width: 100%;
+        }
+      }
+}
