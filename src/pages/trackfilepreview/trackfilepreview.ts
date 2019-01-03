@@ -29,6 +29,7 @@ export class TrackfilepreviewPage {
     this.customerName = this.navParams.get('customername');
     this.customeremail = this.navParams.get('customeremail')
     this.cardId =  this.navParams.get('cardId')
+    console.log("no of element in nava stack : "+this.navCtrl.getActive().index)
   }
   ionViewWillEnter()
   {
@@ -153,8 +154,26 @@ setBackButtonAction(){
     console.log("backbutton fire");
   //Write here wherever you wanna do
   const index = this.navCtrl.getActive().index;
-  this.navCtrl.remove(0, index);
-  this.navCtrl.push(BussinesscardPage);
+  console.log(index);
+ // this.navCtrl.remove(0, index+1);
+ this.navCtrl.popTo(this.navCtrl.getByIndex(this.navCtrl.length()-4));
+  //this.navCtrl.push(BussinesscardPage);
   }
+}
+
+copyMessage(){
+
+  let selBox = document.createElement('textarea');
+  selBox.style.position = 'fixed';
+  selBox.style.left = '0';
+  selBox.style.top = '0';
+  selBox.style.opacity = '0';
+  selBox.value = this.sharabel_url;
+  document.body.appendChild(selBox);
+  selBox.focus();
+  selBox.select();
+  document.execCommand('copy');
+  document.body.removeChild(selBox);
+  this.helperservice.sendalertmessage('bottom','Copied to clipboard Success!');
 }
 }

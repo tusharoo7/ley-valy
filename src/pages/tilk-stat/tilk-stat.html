@@ -62,7 +62,7 @@
 
                              <td *ngIf="data.title != '' "
                             >
-                            {{data.title}}
+                           <b>{{data.title}}</b> 
                             <div *ngIf="data.pages!=undefined">
                                 <p *ngFor ="let pagedetails of data.pages">
                                     <span >page: {{pagedetails.page}}</span>
@@ -77,7 +77,18 @@
                           
                               <!-- <td>{{data.total_time | date:'SSS'}}</td> -->
                                 
-                              <td>{{data.total_time | milisecondtotime}} </td>
+                              <td> 
+                                 <b>{{data.total_time | milisecondtotime}}</b> 
+                              
+                                  <div *ngIf="data.pages!=undefined">
+                                      <p *ngFor ="let pagedetails of data.pages">
+                                          <span >{{pagedetails.time | milisecondtotime}}</span>
+                                      </p>
+                                  </div>
+                                 
+                                
+                              
+                              </td>
                                
                               <!-- <td><a target="_blank" href="file://{{data.content_url}}"></a>Show</td>  -->
                             </tr>

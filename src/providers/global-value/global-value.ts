@@ -177,4 +177,22 @@ export class GlobalValueProvider {
      let api_url ="customerLogout";
      return this.apiservice.post_genreral(api_url,JSON.stringify(data));
    }
+   tilkeedirectupload(data,titel)
+   {
+    let api_url ="direct_upload_data";
+    console.log("data"+ titel+ data)
+    return this.apiservice.tilkee_directupload(api_url,data,titel);
+   }
+  //  datadirectupload(file,resp)
+  //  {
+  //   let api_url ="items";
+  //   return this.apiservice.tilkee_directupload_parttwo(api_url,file,resp);
+  //  }
+  uploaddata_intoamazonserver(file,resp)
+  {
+    
+    return this.apiservice.tilkee_directupload_parttwo(file,resp);
+  }
+// <!------#five satge api #------------->
+
 }

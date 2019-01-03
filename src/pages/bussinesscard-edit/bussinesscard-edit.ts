@@ -248,7 +248,7 @@ public caller :string
       
     if(this.card_details!=undefined && this.card_details!="")
     { 
-      this.titel = "Edit"
+      this.titel = "Save"
       this.caller ='Camcard';
       this.card_holder_office_address ="";
       this.card_holder_office_website ="";

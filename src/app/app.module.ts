@@ -153,7 +153,8 @@ class MilisecondtotimePipe implements PipeTransform  {
     DragulaModule.forRoot(),
     TooltipModule,
     SocialLoginModule,
-    IonicImageViewerModule
+    IonicImageViewerModule,
+    
     
   ],
   bootstrap: [IonicApp],

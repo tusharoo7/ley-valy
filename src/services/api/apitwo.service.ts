@@ -237,7 +237,7 @@ getLushaDefaultHeaders(): HttpHeaders {
       "items" : [{ 
         "id": paylod['file_id'],
         "signable": false,
-        "title": ""
+        "title": paylod['title']
         }]
     }
     this.setTilkeeEndpoint(route);
@@ -296,5 +296,50 @@ getLushaDefaultHeaders(): HttpHeaders {
     const headers = new HttpHeaders().set("api_key", "802484646f648fb5030ab214348cb537").set("Access-Control-Allow-Origin", "*").set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE").set("Access-Control-Allow-Credentials", "true");
     let params = new HttpParams().set('firstName', paylod['first_name']).set('lastName',paylod['last_name']).set('company', paylod['domain']);
     return this.http.get(this.getLushaEndPoint(),{headers:headers,params:params}).catch(this.handleError);
+  }
+
+  tilkee_directupload(route: string,paramsPayload: any,titel:any): Observable<any>
+  {
+       console.log(paramsPayload);
+       this.setTilkeeEndpoint(route);
+       let httpRequestOptions = { headers: this.getTilkeeDefaultHeaders() };
+       //  console.log(this.setTilkeeEndpoint(route));
+    let params = new HttpParams().set('filename', titel+'.'+paramsPayload)
+         // console.log(params);
+           //console.log(this.getTilkeeEndPoint());
+         return this.http.get(this.getTilkeeEndPoint(),{headers:this.getTilkeeDefaultHeaders(),params:params}).catch(this.handleError);
+  }
+
+  tilkee_directupload_parttwo( filePayload: File,paramspayload: any): Observable<any>
+  {
+    console.log(filePayload);
+    console.log(paramspayload);
+    const uploadData = new FormData();
+    uploadData.append('key',  paramspayload.key);
+    uploadData.append('acl',  paramspayload.acl);
+    uploadData.append('policy',  paramspayload.policy);
+    uploadData.append('Signature', paramspayload.signature);
+    uploadData.append('AWSAccessKeyId', paramspayload.AWSAccessKeyId);
+    uploadData.append('success_action_status', "201");
+    uploadData.append('file', filePayload, filePayload.name);
+   
+    
+   
+    
+    
+    return this.http.post("https://datatlk.tilkee.com",uploadData,{ responseType: 'text'}).catch(this.handleError);
+    // this.setTilkeeEndpoint(route);
+    // let uploadcontent = [{
+    //                         "name": "my new file",
+    //                         "from_url": true,
+    //                         "s3_url": "https://datatlk.s3.amazonaws.com/b25c3fe62390%2Fcompanies%2F17323%2Fuploads%2Fd69e85500c12-reactjs_tutorial.pdf",
+    //                         "type": "file",
+    //                         "external_id": "external_id"
+    //   }]
+    //   let httpRequestOptions = { headers: this.getTilkeeDefaultHeaders() };
+    //   console.log(uploadcontent);
+    //   console.log(this.getTilkeeEndPoint());
+    // return this.http.post(this.getTilkeeEndPoint(),uploadcontent, httpRequestOptions).catch(this.handleError);
+        
   }
 }

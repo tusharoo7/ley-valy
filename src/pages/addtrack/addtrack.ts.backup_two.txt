@@ -47,7 +47,7 @@ export class AddtrackPage {
     this.tilk_proj_id = this.navParams.get('tilkee_project_id')
     this.cardid = this.navParams.get('cardid')
     this.projedct_name = this.customerFirstName+'-'+this.customeremail;
-    console.log("prject name :- "+this.projedct_name+"card id :-"+this.cardid+"existing tilkee id :-"+this.tilk_proj_id);
+    console.log(this.projedct_name);
     //<name of customer>-<name of email>
   }
 
@@ -61,7 +61,7 @@ export class AddtrackPage {
 
   }
   gototrackpreview() {
-    var extensionarray = ["doc", "docx", "pdf" ,"jpeg" ,"jpg","png","bmp"] ;
+    var extensionarray = ["doc", "docx", "pdf", "txt" ,"jpeg" ,"jpg","png","bmp"] ;
     //var isexist = extensionarray.indexOf("pdf");
    // console.log(isexist)
 
@@ -129,7 +129,6 @@ export class AddtrackPage {
       loadingPop.present();
       if(this.tilk_proj_id=="")
               {
-                console.log("if part excuted");
                 if (this.expirationdate != undefined)
                  {
                   let duratio = this.getDiferenceInDays(this.expirationdate)
@@ -161,27 +160,7 @@ export class AddtrackPage {
                   //this.navCtrl.push('tilkee_api_integration');
                           if (resp.id != "")
                           {
-                            let add_tilkee_response =
-                                {
-                                  'sessionId': localStorage.getItem('customerSessionId'),
-                                  'osVersion': localStorage.getItem('osVersion'),
-                                  'appVersion': '1.0',
-                                  'customerId': localStorage.getItem('customerId'),
-                                  'os': 'Web',
-                                  'cardId': this.cardid,
-                                  'locale': 'eng',
-                                  'contactName': this.customerFirstName,
-                                  'contactEmail': this.customeremail,
-                                  'expiryDate': this.expirationdate,
-                                  'tilkeeFile': this.image_base64_raw,
-                                  'tilkeeFileExt': this.file_ext,
-                                  'title': this.titel,
-                                  'projectId': resp.id
-                                }
                             this.added_project_in_tilkee_id = resp.id;
-                            console.log(add_tilkee_response)
-                            console.log(add_tilkee_response)
-                            this.globalservice.add_tilkee_Project_Details_localserver(add_tilkee_response).subscribe((resp)=>{console.log(resp)})
                             this.globalservice.tilkeedirectupload(this.file_ext,this.titel).subscribe(
                               (resp)=>{
                                 this.globalservice.uploaddata_intoamazonserver(this.selectedFile,resp).subscribe(
@@ -193,11 +172,9 @@ export class AddtrackPage {
                                     console.log("location"+url)
                                     let externalid = Math.floor((Math.random() * 9999) + 1000);
                         let addcontentlink = [{
-                                               "file_size": null,
-                                               "name": this.titel,// original file name
+                                               "name": this.titel,
                                                "from_url": true,
                                                "s3_url": url,
-                                               "url": url,
                                                 "type": "file",
                                                 "external_id":  ""
                                                }]
@@ -211,7 +188,6 @@ export class AddtrackPage {
                           {
                             let addfiledata = {
                                                 "file_id": resp[0].id,
-                                                "title":this.titel,
                                                 "project_id": this.added_project_in_tilkee_id
                                               }
                                             this.globalservice.addfiletoproject(addfiledata).subscribe((response) => {
@@ -271,8 +247,6 @@ export class AddtrackPage {
               {
                 console.log("else part excuted");
                 this.added_project_in_tilkee_id = this.tilk_proj_id;
-                // signature key and policy genaration for amazon s3 server
-
                 this.globalservice.tilkeedirectupload(this.file_ext,this.titel).subscribe((resp)=>{
                   console.log(resp)
                   // upload data into amazon server
@@ -287,13 +261,11 @@ export class AddtrackPage {
                        // // add file to tilkee
                        let externalid = Math.floor((Math.random() * 9999) + 1000);
                         let addcontentlink = [{
-                                                "file_size": null,
-                                                "name": this.file_check,// original file name
-                                                "from_url": true,
-                                                "s3_url": url,
-                                                "url": url,
+                                               "name": this.titel,
+                                               "from_url": true,
+                                               "s3_url": url,
                                                 "type": "file",
-                                                
+                                                "external_id":  ""
                                                }]
                      console.log(addcontentlink)                     
                           this.globalservice.addfile(addcontentlink).subscribe(
@@ -305,7 +277,6 @@ export class AddtrackPage {
                                 {
                                   let addfiledata = {
                                                       "file_id": resp[0].id,
-                                                      "title":this.titel,
                                                       "project_id": this.added_project_in_tilkee_id
                                                     }
                                                   this.globalservice.addfiletoproject(addfiledata).subscribe((response) => {

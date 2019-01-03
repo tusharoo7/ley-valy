@@ -38,11 +38,12 @@ export class HelperService {
   });
   }
 
-  createLoadingBar_upload()
-  {
+  createLoadingBar_upload(msg)
+  {console.log(msg)
+
     return this.loadingCtrl.create({
       spinner: 'hide',
-      content: 'Please wait while uploading...... ',
+      content: msg,
       dismissOnPageChange: false,
   });
   }

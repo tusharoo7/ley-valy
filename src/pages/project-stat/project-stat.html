@@ -33,8 +33,8 @@
               <th  width="120">Date d'accés </th>
               <th>Temps de lecture</th>
               <th>Pourcentage lu</th>
-              <th width="140">Téléchargé</th>
-              <th width="140">Apparetl</th>
+              <!-- <th width="140">Téléchargé</th> -->
+              <th width="140">Appareils</th>
               <th width="140">Details</th>
             </tr>
             <tr  *ngFor ="let data of tik_list_stat">
@@ -48,7 +48,7 @@
                   
                 </td>
                 <td><span class="circle">{{data.percentage_read}}%</span></td>
-                <td *ngIf="data.downloaded == false"><i class="fa fa-times grid-icon"></i></td>
+                <!-- <td *ngIf="data.downloaded == false"><i class="fa fa-times grid-icon"></i></td> -->
                         <td *ngIf="data.downloaded == true"><i class="fa fa-check" aria-hidden="true"></i>
                         </td>
                         <td>

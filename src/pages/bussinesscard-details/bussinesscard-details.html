@@ -45,9 +45,9 @@
                     <ion-col col-6 no-padding class="card_details contact_info">
                       <h1>{{card_firstName}} {{card_lastName}}</h1>
                       <p>{{card_position}}<br> {{card_company}}</p>
-                    <p class="tel">{{card_mobile}}</p>
-                    <p class="tel">{{card_phone}}</p>
-                    <p class="mail">{{card_email}}</p>
+                    <p class="tel"><a type="tel" href="tel:{{card_mobile}}">{{card_mobile}}</a></p>
+                    <p class="tel"> <a type="tel" href="tel:{{card_phone}}">{{card_phone}}</a></p>
+                    <p class="mail"><a  href="mailto:{{card_email}}">{{card_email}}</a></p>
                     </ion-col>
   
   
