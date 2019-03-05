@@ -311,4 +311,17 @@ page-bussinesscard {
     padding: 10px;
     border: 1px solid black;
 }
+.reset-class{
+  width: 50%; 
+  margin: 0 auto;
+   text-align: center;
+  
+   //display: none;
+}
+.reset-class .log-in-bt{
+   background: #043ab4;
+    width: 50%;
+    border-radius: 15px;
+}
+
 }

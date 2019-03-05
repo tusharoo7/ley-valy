@@ -6,14 +6,13 @@ import {BussinesscardEditPage} from '../bussinesscard-edit/bussinesscard-edit';
 import { GlobalValueProvider } from '../../providers/global-value/global-value';
 import { HelperService } from '../../services/helper/helper.service';
 import { MyAccountPage } from '../my-account/my-account';
-import { DragulaService } from 'ng2-dragula';
 
 import {  ImageCompressService, 
   ResizeOptions, 
   ImageUtilityService, 
   IImage,
   SourceImage } from  'ng2-image-compress';
-import { INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic/src/platform_providers';
+
 
 /**
  * Generated class for the BussinesscardPage page.
@@ -21,7 +20,6 @@ import { INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-b
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
 @Component({
   selector: 'page-bussinesscard',
   templateUrl: 'bussinesscard.html',
@@ -29,30 +27,29 @@ import { INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-b
 export class BussinesscardPage {
   osversion :any;
   public card_list :any;
+  public store_card_list :any;
   selectedFile: File;
   base64textString :any="";
   image_base64_raw :any = "" ;
-  
   camcardresp :any;
   processedImages: any;
   image_name: any; 
   showTitle: any; 
   image_ext: any;
   loadingPop:any;
-  constructor(private _DRAG 	: DragulaService,public helperservice : HelperService ,public globalservice: GlobalValueProvider, public navCtrl: NavController, public navParams: NavParams) {
+  search:any = "" ;
+
+  public show:boolean = false;
+  constructor(public helperservice : HelperService ,public globalservice: GlobalValueProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
+  // GENERATE LIST OF BUISNESS CARD
   ionViewDidEnter()
   {
-   // this.helperservice.backtohome();
-    
-  // }
-  // ionViewDidLoad() {
-
-            var objAgent = navigator.userAgent;
-            var objbrowserName  = navigator.appName;
-            var objfullVersion  = ''+parseFloat(navigator.appVersion); 
-            var objBrMajorVersion = parseInt(navigator.appVersion,10);
-            var objOffsetName,objOffsetVersion,ix;
+      var objAgent = navigator.userAgent;
+      var objbrowserName  = navigator.appName;
+      var objfullVersion  = ''+parseFloat(navigator.appVersion); 
+      var objBrMajorVersion = parseInt(navigator.appVersion,10);
+      var objOffsetName,objOffsetVersion,ix;
             // In Chrome 
             if ((objOffsetVersion=objAgent.indexOf("Chrome"))!=-1) 
             {
@@ -110,17 +107,18 @@ export class BussinesscardPage {
                           'startingRecordNo':'0', 
                           'locale':'en'
                         }
-                        console.log(getallcards);
+                      //  console.log(getallcards);
                         this.loadingPop = this.helperservice.createLoadingBar();
                         this.loadingPop.present();
                 
                         this.globalservice.list_bisnes_card(getallcards).subscribe((resp) => {
                           this.loadingPop.dismiss();
-                          console.log(resp);
+                         // console.log(resp);
                         // // this.navCtrl.push(HomePage);
                            if (resp.responseStatus.STATUS=="SUCCESS")
                             {
                               this.card_list =  resp.responseData
+                              this.store_card_list =this.card_list ;
                           }
                           else if(resp.responseStatus.STATUS=="FAILED" && resp.responseStatus.STATUSCODE== "210")
                           {
@@ -135,41 +133,32 @@ export class BussinesscardPage {
                     this.helperservice.sendalertmessage('bottom',"oops..! internal error occurred!");
                   });   
                                       
-    console.log('ionViewDidLoad BussinesscardPage');
+   // console.log('ionViewDidLoad BussinesscardPage');
   }
-  gobussinesscarddetails() {
+  // GO TO BUISNESS-CARD DETAILS PAGE
+  gobussinesscarddetails() 
+  {
     this.navCtrl.push(BussinesscardDetailsPage);
   }
+  // ADD NEW BUISNESS-CARD
   scan_bcard()
   {
     this.navCtrl.push(BussinesscardAddPage)
   }
-
+// VIEW DETAILS OF BUISNESS-CARD
   view_details(cardid)
   {
-    console.log("ss");
     this.navCtrl.push(BussinesscardDetailsPage,{cardid:cardid})
   }
-
-  // ==========  upload image via camera ============ 
-  // _handleReaderLoaded(readerEvt) {
-  //   var binaryString = readerEvt.target.result;
-  //         this.image_base64_raw = btoa(binaryString) ;
-  //         this. img_ext_raw = "png" ;
-  //          this.base64textString= 'data:image/png;base64,' + btoa(binaryString);
-  //        // console.log('btoa'+this.image_base64_raw);
-  //        // console.log(btoa(this. img_ext_raw));
-  //  }
+// ITS USED TO CONVERT FILE TO BASE 64 ENCODED FORMAT
   onFileChanged(event) 
   {
     this.selectedFile = event.target.files[0]
     //console.log(this.selectedFile )
-
     let image_name = this.selectedFile.name ;
    // console.log(image_name);
     var res_img = image_name.split(".");
- 
-    this.image_ext= res_img[1];
+     this.image_ext= res_img[1];
    // console.log(this.image_ext);
 
    function randomString(length, chars) 
@@ -244,58 +233,95 @@ export class BussinesscardPage {
                           {
                             this.helperservice.sendalertmessage('bottom',resp.responseStatus.MESSAGE);
                           }
-
+                          // added by tushar on 6th february 2019
+                          else if(resp.responseStatus.STATUS=='FAILED' && resp.responseStatus.STATUSCODE=='602')
+                          {
+                            this.helperservice.sendalertmessage('bottom',resp.responseStatus.MESSAGE);
+                          }
+                          else if(resp.responseStatus.STATUS=='FAILED' && resp.responseStatus.STATUSCODE=='603')
+                          {
+                            this.helperservice.sendalertmessage('bottom',resp.responseStatus.MESSAGE);
+                          }
+                          else if(resp.responseStatus.STATUS=='FAILED' && resp.responseStatus.STATUSCODE=='605')
+                          {
+                            this.helperservice.sendalertmessage('bottom',resp.responseStatus.MESSAGE);
+                          }
                 },
                   (err)=>{
                           this.loadingPop.dismiss(); 
                           this.helperservice.sendalertmessage('bottom',err);
                   }
                ) 
-
-
-              //console.log(camcarddata)
-
-               // this.image_name=this.processedImages[0].compressedImage.imageDataUrl;         
+       
      });
    });
-   //console.log('objfullVersion')
-  //console.log(this.image_name) ;
-        
   
-    
-
-
-  //var files = event.target.files;
   }
 
-  
-
-
-
+// GO TO DASHBOARD PAGE
    got_to_home()
    {
-
      const index = this.navCtrl.getActive().index;
      this.navCtrl.remove(0, index);
      this.navCtrl.setRoot(MyAccountPage)
-
-
    }
-
-   allowDrop(ev) {
-    ev.preventDefault();
-  }
-
-  drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-  }
-
-  drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-  }
-
+// Get search data
+   getsearchdata()
+   {
+    if(this.search=='')
+    {
+      this.helperservice.sendalertmessage('bottom','Please enter your search text');
+    }
+    else
+    {
+          console.log(this.search)
+ let searchjson={
+                  'sessionId':localStorage.getItem('customerSessionId'), 
+                  'osVersion':this.osversion, 
+                  'appVersion':'1.0', 
+                  'customerId':localStorage.getItem("customerId"), 
+                  'os':'Web', 
+                  'startingRecordNo':'0', 
+                  'locale':'en',
+                  'searchKey':this.search
+                   }
+                   this.loadingPop = this.helperservice.createLoadingBar();
+              this.loadingPop.present();
+this.globalservice.search_bisnes_card(searchjson).subscribe(
+                    (resp)=>{
+                      console.log(resp),
+                      this.loadingPop.dismiss();
+                      if (resp.responseStatus.STATUS=="SUCCESS" &&  resp.responseStatus.STATUSCODE=='200' )
+                      {
+                        this.card_list =  resp.responseData;
+                        this.show=true;
+                      //  const resetbutton = document.getElementsByClassName("reset-class") as HTMLCollectionOf<HTMLElement>;
+                      //  resetbutton.style.display = "block";
+                       // <HTMLElement>document.querySelector('#yourDomElmentID')).style.display = 'none';
+                    }
+                    else if(resp.responseStatus.STATUS=="FAILED" && resp.responseStatus.STATUSCODE== "213")
+                    {
+                      this.card_list = ""
+                      this.show=true;
+                    }
+                    else
+                      {
+                        this.card_list = ""
+                        this.show=true;
+                      }
+                    },
+                    (err)=>{ this.helperservice.sendalertmessage('bottom',err);}
+                   )
+                }
+   }
+// reset seach data
+   reset_search()
+   {
+    this.search='';
+    this.card_list = this.store_card_list;
+    this.show=false;
+    
+   }
   
 
 }

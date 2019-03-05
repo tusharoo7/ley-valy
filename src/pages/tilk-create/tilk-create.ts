@@ -29,7 +29,7 @@ export class TilkCreatePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad TilkCreatePage');
   }
- 
+ // create tilk link
   generatelink()
   {
    // console.log(this.toppings);

@@ -67,7 +67,7 @@ export class ProjectStatPage {
     console.log('ionViewDidLoad ProjectStatPage');
   }
 
-
+// get statistic details
   view_stat_details(tilk_id,projectname,pdate,stime,titel)
 {
     
@@ -77,14 +77,14 @@ export class ProjectStatPage {
  this.navCtrl.push(TilkStatPage, { 'projectid': this.projectid,'id_connexion':tilk_id,'projectname' :projectname,'pdate':pdate ,'stime' :stime,'titel':titel})
  // this.navCtrl.push('TilkStatPage', { 'projectid': this.projectid,'id_connexion':tilk_id,'projectname' :projectname,'pdate':pdate ,'stime' :stime,'titel':titel})
 }
-
+// back to dashboard
 got_to_home()
 {
   const index = this.navCtrl.getActive().index;
   this.navCtrl.remove(0, index);
   this.navCtrl.setRoot(MyAccountPage)
 }
-
+// convert integer to hour mintues second 
 converttime(time)
 {
       let hoursting="";

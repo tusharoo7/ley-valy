@@ -40,14 +40,18 @@ export class BussinesscardDetailsPage {
   card_position:any ="";
   projectId_tilkee :any;
   tik_list_stat:any='';
+  // 08 february 2019 6.33 pm {start}
+  allowTilkee:any=''; 
+  tilkeeMsg:any='';
+  // 08 february 2019 6.33 pm {end}
   constructor(public modalCtrl: ModalController,@Inject(DOCUMENT) private document: any,public helperservice : HelperService ,public globalservice: GlobalValueProvider,public navCtrl: NavController, public navParams: NavParams) {
     this.cardid = navParams.get('cardid');
     console.log(this.cardid);
   }
-
-  ionViewDidLoad() {
-
-    
+// get details of buiness card
+  ionViewDidLoad()
+   {
+     
     var objAgent = navigator.userAgent;
     var objbrowserName  = navigator.appName;
     var objfullVersion  = ''+parseFloat(navigator.appVersion); 
@@ -121,11 +125,15 @@ let getcarddetails = {
                 this.globalservice.get_card_details(getcarddetails).subscribe((resp) => {
                   loadingPop.dismiss();
                   console.log(resp);
-                // // this.navCtrl.push(HomePage);
+                // // this.navCtrl.push(HomePage); 
                    if (resp.responseStatus.STATUS=="SUCCESS" && resp.responseStatus.STATUSCODE== "200")
                     {
                       this.card_details =  resp.responseData
                       this.projectId_tilkee = this.card_details.projectId
+                      // 08 february 2019 6.33 pm {start}
+                      this.allowTilkee = this.card_details.allowTilkee
+                      this.tilkeeMsg = this.card_details.tilkeeMsg
+                       // 08 february 2019 6.33 pm {end}
                      if(this.card_details.cardPic
                       !=null && this.card_details.cardPic!=undefined )
                      {
@@ -136,8 +144,6 @@ let getcarddetails = {
                       this.card_image ="assets/imgs/business_card_no_image.png";
                      }
                      
-                    
-                      
                      if(this.card_details.company!=null && this.card_details.company!=undefined && this.card_details.company!="" )
                      {
                       this.card_company =this.card_details.company;
@@ -157,9 +163,6 @@ let getcarddetails = {
                       this.card_email ="Details Not Availabel";
                      }
 
-                     
-                     
-
                      if(this.card_details.firstName!=null && this.card_details.firstName!=undefined  )
                      {
                       this.card_firstName =this.card_details.firstName;
@@ -177,8 +180,6 @@ let getcarddetails = {
                      {
                       this.card_lastName ="";
                      }
-
-                     
 
                      if(this.card_details.mobile!='null' && this.card_details.mobile!=undefined && this.card_details.mobile!="" )
                      {
@@ -210,8 +211,8 @@ let getcarddetails = {
                       this.card_position ="Position not given";
                      }
 
-                     console.log(this.card_phone);
-                     console.log(this.card_mobile);
+                    // console.log(this.card_phone);
+                    // console.log(this.card_mobile);
 
                      /// check any statistical data found or not
                      if(this.projectId_tilkee!="")
@@ -233,7 +234,7 @@ let getcarddetails = {
                                  }, 
                                  (err) => 
                                     {
-                                        this.helperservice.sendalertmessage('bottom',"oops..! internal error occurred!");
+                                        //this.helperservice.sendalertmessage('bottom',"oops..! internal error occurred!");
                                     });   
                                     console.log(this.tik_list_stat)
                      }
@@ -265,11 +266,13 @@ let getcarddetails = {
   // gobussinesscardeditpage() {
   //   this.navCtrl.push(BussinesscardEditPage);
   // }
+  // go to edit card
   edit_card(cardid)
   {
     //console.log(this.card_details);
     this.navCtrl.push(BussinesscardEditPage,{card_details :this.card_details})
   }
+  // delete this card
   delete_this(cardid){
     
     let delete_card  = {
@@ -321,37 +324,49 @@ let getcarddetails = {
                 
                 
               }     
-              
+              // go to upload page for crate new project or upload file with existing project
               addtrack() {
+                // 08 february 2019 6.33 pm {start}
+               if(this.allowTilkee==false) 
+               {
+                this.helperservice.sendalertmessage('bottom',this.tilkeeMsg)
+               }
+               if(this.allowTilkee==true) 
+               {
                 this.navCtrl.push(AddtrackPage ,{'customerfirstname' :this.card_firstName ,'customerlastname':this.card_lastName,'customeremail':this.card_email ,'cardid':this.cardid,'tilkee_project_id':this.projectId_tilkee});
+               }
+                // 08 february 2019 6.33 pm {end}
               }
 
               //import { MyAccountPage } from '../my-account/my-account';
+  // GO TO DASHBOARD PAGE              
 got_to_home()
 {
   const index = this.navCtrl.getActive().index;
   this.navCtrl.remove(0, index);
   this.navCtrl.setRoot(MyAccountPage)
 }
-goToUrl(): void {
+// goToUrl(): void {
 
-  let profileModal =  this.modalCtrl.create('TilkPreviewPage', { 'preview': '' });
+//   let profileModal =  this.modalCtrl.create('TilkPreviewPage', { 'preview': '' });
 
-        profileModal.present();
- // window.open("https://docs.tilkee.io/preview/OTdlMDM2YWE0OA", "", "width=100, height=100");
-}
+//         profileModal.present();
+//  // window.open("https://docs.tilkee.io/preview/OTdlMDM2YWE0OA", "", "width=100, height=100");
+// }
 
-goTonewUrl(): void
-{
-  window.open("https://docs.tilkee.io/preview/OTdlMDM2YWE0OA", "", "width=100, height=100");
-}
+// goTonewUrl(): void
+// {
+//   window.open("https://docs.tilkee.io/preview/OTdlMDM2YWE0OA", "", "width=100, height=100");
+// }
 
-view_stat_details(tilk_id)
-{
+// got to statistics page 
+// view_stat_details(tilk_id)
+// {
     
-  let profileModal = this.modalCtrl.create('TilkStatPage', { 'projectid': this.projectId_tilkee,'id_connexion':tilk_id });
-  profileModal.present();
-}
+//   let profileModal = this.modalCtrl.create('TilkStatPage', { 'projectid': this.projectId_tilkee,'id_connexion':tilk_id });
+//   profileModal.present();
+// }
+// got to tilkee  statistics page 
 getstat(projectid,projectname)
     {
      //this.navCtrl.push('projectstat',{projectid:projectid,projectname:projectname})

@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams ,ViewController } from 'ionic-angul
 
 import { HelperService } from '../../services/helper/helper.service';
 import { GlobalValueProvider } from '../../providers/global-value/global-value';
-
+import { MyAccountPage } from '../my-account/my-account';
 /**
  * Generated class for the ListTilkPage page.
  *
@@ -50,5 +50,10 @@ export class ListTilkPage {
 
   dismiss() {
     this.viewCtrl.dismiss();
+  }
+  got_to_home() {
+    const index = this.navCtrl.getActive().index;
+    this.navCtrl.remove(0, index);
+    this.navCtrl.setRoot(MyAccountPage)
   }
 }

@@ -33,7 +33,7 @@ export class MyApp {
        { title: 'Profile', component: ProfilePage },
       // { title:  'Settings', component: MyAccountPage },
       //{ title:  'Payment', component: PaymentPage },
-      { title:  'Payment', component: MyAccountPage },
+      { title:  'Payment', component: PaymentPage },
       // { title:  'Mail', component: MyAccountPage },
       {title :'Change Password', component:ChangePasswordPage },
       // {title :'Contact Information' ,component :ContactPage},

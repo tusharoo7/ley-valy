@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {TrackPage } from '../track/track';
 import { BussinesscardPage } from '../bussinesscard/bussinesscard';
+import { MyAccountPage } from '../my-account/my-account';
 /**
  * Generated class for the TrackfilePage page.
  *
@@ -34,5 +35,11 @@ export class TrackfilePage {
   trackfilenotread()
   {
     this.navCtrl.push(TrackPage ,{'read':0})
+  }
+
+  got_to_home() {
+    const index = this.navCtrl.getActive().index;
+    this.navCtrl.remove(0, index);
+    this.navCtrl.setRoot(MyAccountPage)
   }
 }

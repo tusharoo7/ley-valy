@@ -25,6 +25,7 @@ import {ContactPage} from '../pages/contact/contact' ;
 import {TrackPage } from '../pages/track/track';
 import {AddtrackPage } from '../pages/addtrack/addtrack';
 import {TrackfilepreviewPage} from '../pages/trackfilepreview/trackfilepreview';
+import {PaymentdetailsPage} from '../pages/paymentdetails/paymentdetails';
 // imported custom services  and providers
 import { HelperService } from '../services/helper/helper.service';
 import { GlobalValueProvider } from '../providers/global-value/global-value';
@@ -47,32 +48,52 @@ import * as moment from 'moment'
 import {TooltipModule} from "ngx-tooltip";
 
 //import { Ng2GoogleChartsModule } from 'ng2-google-charts';
-// Import the library
+// Import the library 
 import { IonicImageViewerModule } from 'ionic-img-viewer';
-import {
-  SocialLoginModule,
-  AuthServiceConfig,
+
+// import {
+//   SocialLoginModule,
+//   AuthServiceConfig,
  
-  LinkedinLoginProvider
-} from "angular5-social-auth";
+//   LinkedinLoginProvider
+// } from "angular5-social-auth";
 
 
-// Configs 
-export function getAuthServiceConfigs() {
-let config = new AuthServiceConfig(
-    [
+// // Configs 
+// export function getAuthServiceConfigs() {
+// let config = new AuthServiceConfig(
+//     [
       
-       {
-        id: LinkedinLoginProvider.PROVIDER_ID,
-        provider: new LinkedinLoginProvider('813i281nxmkqi1')
-      }
-    ]
-);
-return config;
-}
+//        {
+//         id: LinkedinLoginProvider.PROVIDER_ID,
+//         provider: new LinkedinLoginProvider('813i281nxmkqi1')
+//       }
+//     ]
+// );
+// return config;
+// }
 
+// import {
+//   SocialLoginModule,
+//   AuthServiceConfig,
+ 
+//   LinkedinLoginProvider
+// } from "angular5-social-auth";
+import {
+  SocialLoginModule, 
+  AuthServiceConfig,
+  LinkedinLoginProvider
+} from 'ng4-social-login';
 // common pipe 
-
+const CONFIG = new AuthServiceConfig([
+  {
+   id: LinkedinLoginProvider.PROVIDER_ID,
+   provider: new LinkedinLoginProvider('813i281nxmkqi1')
+ }
+],false);
+export function provideConfig() {
+ return CONFIG;
+}
 @Pipe({name:"dateformatter"})
 class dateformatterPipe implements PipeTransform{transform(value:string):string{
 return moment(value).startOf('hour').fromNow();
@@ -138,7 +159,8 @@ class MilisecondtotimePipe implements PipeTransform  {
    dateformatterPipe
    ,ProjectStatPage,
    TilkStatPage,
-   TrackfilePage
+   TrackfilePage,
+   PaymentdetailsPage
 
   ],
   imports: [
@@ -154,7 +176,7 @@ class MilisecondtotimePipe implements PipeTransform  {
     TooltipModule,
     SocialLoginModule,
     IonicImageViewerModule,
-    
+    SocialLoginModule
     
   ],
   bootstrap: [IonicApp],
@@ -177,7 +199,8 @@ class MilisecondtotimePipe implements PipeTransform  {
     TrackfilepreviewPage,
     ProjectStatPage,
     TilkStatPage,
-    TrackfilePage
+    TrackfilePage,
+    PaymentdetailsPage
   ],
   providers: [
     StatusBar,
@@ -192,8 +215,12 @@ class MilisecondtotimePipe implements PipeTransform  {
    // Device,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     // Inject apiKey and, optionally, authorize to integrate with LinkedIN official API
-    {provide: AuthServiceConfig,
-      useFactory: getAuthServiceConfigs}
+    // {provide: AuthServiceConfig,
+    //   useFactory: getAuthServiceConfigs}
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
 
   ]
 })

@@ -466,9 +466,17 @@ console.log(txt1);
         this.globalservice.siginup(registration_json).subscribe((resp) => {
                 loadingPop.dismiss();
                 console.log(resp);
-              // this.navCtrl.push(HomePage);
+              // this.navCtrl.push(HomePage); 
                  if (resp.responseStatus.STATUS=="SUCCESS")
                  {
+                  this.globalservice.signup_in_tilkee(registration_json).subscribe(
+                    (resp)=>{
+                      console.log('tilkee user registration')
+                      console.log(resp)
+                    },
+                  (err)=>{
+                    console.log(err)
+                  })
                    //this.helperservice.sendalertmessage('bottom',resp.responseStatus.MESSAGE
                   //);
                   localStorage.setItem("customerId" , resp.responseData.customerId);

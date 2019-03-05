@@ -148,7 +148,7 @@ export class TrackfilepreviewPage {
     }); 
   }
 
-  //Method to override the default back button action
+   //Method to override the default back button action
 setBackButtonAction(){
   this.navBar.backButtonClick = () => {
     console.log("backbutton fire");

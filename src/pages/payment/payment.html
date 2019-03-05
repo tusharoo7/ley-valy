@@ -14,10 +14,80 @@
 
 
 <ion-content padding>
-<div class="container">
-  <div class="payment-wrap">
-    <button class="pricing-plan">Choose your pricing plan</button>
-    <button class="pricing-plan">Change your pricing plan</button>
+  <div class="container">
+    <div class="payment-wrap">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <div class="payment-box">
+              <div class="top-bar">
+                <h2>{{free_subscription.subscriptionName}}</h2>
+                <h3>{{free_subscription.subscriptionType}}</h3>
+                <h5>{{free_subscription.periodWithCharge}}</h5>
+                <a  class="payment-bt-select">{{free_subscription.status}}</a>
+              </div>
+              <div class="features-list">
+                <ul>
+                  <li> <ion-icon ios="ios-calendar-outline" md="ios-calendar-outline"></ion-icon><b> {{free_subscription.durationLevel}}:</b> <span> 
+                    {{free_subscription.durationValue}}  </span></li>
+                  <li><ion-icon ios="ios-card" md="ios-card"></ion-icon>  <b> Business card scanned :</b> <span> {{free_subscription.businessCardScanVal}}
+                   </span></li>
+                  <li> <ion-icon ios="ios-eye-outline" md="ios-eye-outline"></ion-icon> <b> Tracked documents :</b> <span>{{free_subscription.trackedDocumentsVal}}
+                    </span> </li>
+                  <li><ion-icon ios="ios-people-outline" md="ios-people-outline"></ion-icon> <b> Requests :</b> <span> {{free_subscription.requestsVal}}
+                     </span></li>
+                  <li><ion-icon ios="ios-clipboard" md="md-clipboard"></ion-icon> <b> Details :</b> <span style="width: 57%"> {{free_subscription.description}} </span></li>
+                  <div *ngIf="free_subscription.status =='Running'">
+                    <li><ion-icon ios="ios-calendar" md="md-calendar"></ion-icon><b>Activation Date :</b> <span>  {{free_subscription.activationDate}}</span></li>
+                    <li><ion-icon ios="ios-calendar" md="md-calendar"></ion-icon><b>Expiry date:</b> <span> {{free_subscription.expiredDate}}</span>  </li>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col col-6>
+              <div class="payment-box">
+                <div class="top-bar">
+                  
+                  <h2>{{yearly_subscription.subscriptionName}}</h2>
+                 
+                  <h3>{{yearly_subscription.planCahrge}}</h3>
+                  <h5>{{yearly_subscription.periodWithCharge}}</h5>
+                  <button  [disabled]="!buy_subscription" (click)="gotothankyou(yearly_subscription.subscriptionId);" class="payment-bt-select">{{buy_subscription_button_text}} </button>
+                </div>
+                <div class="features-list">
+                  <ul>
+                    <li> <ion-icon ios="ios-calendar-outline" md="ios-calendar-outline"></ion-icon><b> {{yearly_subscription.durationLevel}}:</b> <span> 
+                      {{yearly_subscription.durationValue}}  </span></li>
+
+                    <li><ion-icon ios="ios-card" md="ios-card"></ion-icon> <b> Business card scanned :</b> <span>{{yearly_subscription.businessCardScanVal}}
+                      </span> </li>
+
+
+                    <li> <ion-icon ios="ios-eye-outline" md="ios-eye-outline"></ion-icon> 
+                      <b> Tracked documents :</b> <span>{{yearly_subscription.trackedDocumentsVal}} </span></li>
+
+                    <li>  <ion-icon ios="ios-people-outline" md="ios-people-outline"></ion-icon>
+                      <b> Requests :</b> <span> {{yearly_subscription.requestsVal}}
+                      </span> </li>
+                      <li><ion-icon ios="ios-clipboard" md="md-clipboard"></ion-icon> <b> Details :</b> <span style="width: 57%"> 
+                        {{yearly_subscription.description}} </span></li>
+                        <div *ngIf="yearly_subscription.status =='Running'">
+                          <li><ion-icon ios="ios-calendar" md="md-calendar"></ion-icon><b>Activation Date :</b> <span>  {{yearly_subscription.activationDate}}</span></li>
+                          <li><ion-icon ios="ios-calendar" md="md-calendar"></ion-icon><b>Expiry date:</b> <span> {{yearly_subscription.expiredDate}}</span>  </li>
+                        </div>
+                       
+                  </ul>
+                </div>
+               
+              </div>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
   </div>
-</div>
+  <ion-fab right bottom class="home-menu"> 
+      <button ion-fab color="danger" (click)="got_to_home()"><ion-icon ios="ios-home-outline" md="ios-home-outline"></ion-icon></button>
+    </ion-fab>
 </ion-content>
+

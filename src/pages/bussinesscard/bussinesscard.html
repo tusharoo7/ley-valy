@@ -24,8 +24,8 @@
 
         <ion-col col-12 class="search_block">
           <div class="search-wrap">
-            <input type="text" placeholder="Search">
-            <button class="search_icon">
+            <input autocomplete="off" name="search" [(ngModel)]="search" type="text" placeholder="Search">
+            <button class="search_icon" (click)="getsearchdata()">
               <ion-icon name="search"></ion-icon>
             </button>
           </div>
@@ -82,7 +82,10 @@
             </ion-col>
           </ion-row>
           </div>
-
+        <div class="reset-class"  *ngIf="show">
+          <button ion-button class="log-in-bt" (click)="reset_search()" type="submit">Reset</button>
+        </div>
+       
     </ion-grid>
   </div>
   <ion-fab  right bottom class="home-menu" absolute-drag id="mydiv"> 

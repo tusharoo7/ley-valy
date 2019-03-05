@@ -6,13 +6,18 @@ import { MyAccountPage }  from '../my-account/my-account';
 
 import { HelperService } from '../../services/helper/helper.service';
 import { GlobalValueProvider } from '../../providers/global-value/global-value';
-import {
-  SocialLoginModule,
-  AuthService,
+// import {
+//   SocialLoginModule,
+//   AuthService,
  
-  LinkedinLoginProvider
-} from "angular5-social-auth";
-
+//   LinkedinLoginProvider
+// } from "angular5-social-auth";
+// new linkdin service 
+import { 
+  AuthService ,
+  LinkedinLoginProvider,
+  SocialUser
+} from 'ng4-social-login';
 
 
 @Component({
@@ -29,11 +34,21 @@ export class HomePage {
                   'password':'', 
                    'email':''
                  }
+   private linkdin_user: SocialUser;
+    private linkdin_loggedIn: boolean;  
+   // public linkdinloginbutton : any=0;             
   constructor(private socialAuthService: AuthService, private menuCtrl: MenuController , public globalservice: GlobalValueProvider,public helperservice : HelperService ,public navCtrl: NavController) {
     //this.menuCtrl.enable(false, 'myMenu');
   }
 
   ionViewDidLoad() {
+    // check state of th login using linkdin 
+    this.socialAuthService.authState.subscribe((user) => {
+      this.linkdin_user = user;
+      this.linkdin_loggedIn = (user != null);
+    });
+    console.log(this.linkdin_user);
+    console.log(this.linkdin_loggedIn);
     // the root left menu should be disabled on this page
     let positon_one  = navigator.userAgent.indexOf("(");
     let postion_last = navigator.userAgent.indexOf(")");
@@ -247,11 +262,6 @@ this.browserDetails = objbrowserName ;
 
   golinkdin_signup(socialPlatform : string)
   {
-    let socialPlatformProvider;
-    if(socialPlatform == "linkedin"){
-      socialPlatformProvider = LinkedinLoginProvider.PROVIDER_ID;
-    }
-    
     function randomString(length, chars) 
                           {
                             var result = '';
@@ -259,88 +269,203 @@ this.browserDetails = objbrowserName ;
                              result += chars[Math.floor(Math.random() * chars.length)];
                             return result;
                           }
-                        var rString = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-    this.socialAuthService.signIn(socialPlatformProvider).then(
-      (userData) => {
-        console.log(socialPlatform+" sign in data : " , userData);
-        console.log(userData.id);
-        //let userdata = JSON.parse(userData)
-        // Now sign-in with userData
-         let cname = userData.name.split(' ')
-
-         if(localStorage.getItem("deviceId")!="")
-         {
-           console.log('old deviceid '+localStorage.getItem("deviceId"))
-           this.rString = localStorage.getItem("deviceId")
-           console.log('did1'+this.rString);
-         }
-         else
-         {
-          this.rString = rString
-          console.log('did2'+this.rString);
-         }
-        let linkdinlogin = {   'locale':'eng', 
-                               'customerFirstName':cname[0],
-                               'customerLastName':cname[1], 
-                               'customerEmail':userData.email,
-                               'deviceId':this.rString,
-                               'pushNotificationToken':'',
-                               'simOperatorName':'',
-                               'os':'Web',
-                               'profilePicUrl':userData.image,
-                               'registrationType': 'LINK',
-                               'osVersion':this.osversion,
-                               'appVersion':'1.0',
-                               'deviceName':this.devicename,
-                               'deviceAndroidID':"",
-                               'deviceWifiMacID':"",
-                               'simSerialNo':"",
-                               'browserDetails':this.browserDetails,
-                               'socialId':userData.id
-                            }
-              console.log(linkdinlogin) ;   
-              let loadingPop = this.helperservice.createLoadingBar();
-              loadingPop.present();
-              this.globalservice.customersociallogin(linkdinlogin).subscribe(
-                
-                (resp)=>{if (resp.responseStatus.STATUS=="SUCCESS")
-                {
-                  loadingPop.dismiss();
-                 console.log(resp);
-                //  this.helperservice.sendalertmessage('bottom',resp.responseStatus.MESSAGE
-                // );
-                 localStorage.setItem("customerId" , resp.responseData.customerId);
-                 localStorage.setItem("customerEmail" , resp.responseData.customerEmail);
-                 localStorage.setItem("customerFirstName" ,  resp.responseData.customerFirstName);
-                 localStorage.setItem("customerLastName" , resp.responseData.customerLastName);
-                 localStorage.setItem("customerProfilePic" , resp.responseData.customerProfilePic);
-                 localStorage.setItem("customerSessionId" , resp.responseData.customerSessionId);
-                 localStorage.setItem('customerEnterprise',resp.responseData.customerEnterprise);
-                 localStorage.setItem('customerPosition',resp.responseData.customerPosition);
-                 localStorage.setItem('customerMobile',resp.responseData.customerMobile);
-                 if(localStorage.getItem("deviceId")!="")
-           {
-             
-           }
-           else
-           {
-            localStorage.setItem('deviceId',this.rString) ;
-           }
+    var rString = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+    // if(socialPlatform == "linkedin"){
+    //   socialPlatformProvider = LinkedinLoginProvider.PROVIDER_ID;
+    // }
+    //console.log(this.linkdin_user);
+    if(this.linkdin_loggedIn==false)
+    {
       
-                 localStorage.setItem('customerPhone',resp.responseData.customerPhone);
-                 localStorage.setItem('osVersion',this.osversion);
-                 this.navCtrl.setRoot(MyAccountPage);     
-               }
-              else
-                 {
-                   this.helperservice.sendalertmessage('bottom',resp.responseStatus.MESSAGE);
-                }},(err)=>{loadingPop.dismiss();
-        
-                  this.helperservice.sendalertmessage("bottom","Something went wrong!Please try again.");}
-              )
+        this.socialAuthService.signIn(LinkedinLoginProvider.PROVIDER_ID).then(
+          (userdata)=>{
+                        console.log("is back");
+                        console.log(socialPlatform+" sign in data : " , userdata);
+                        let cname = userdata.name.split(' ');
+                        if(localStorage.getItem("deviceId")!="")
+                        {
+                          console.log('old deviceid '+localStorage.getItem("deviceId"))
+                          this.rString = localStorage.getItem("deviceId")
+                          console.log('did1'+this.rString);
+                        }
+                        else
+                        {
+                          this.rString = rString
+                          console.log('did2'+this.rString);
+                        }
 
+                          let linkdinlogin = {   
+                                                'locale':'eng', 
+                                                'customerFirstName':cname[0],
+                                                'customerLastName':cname[1], 
+                                                'customerEmail':userdata.email,
+                                                'deviceId':this.rString,
+                                                'pushNotificationToken':'',
+                                                'simOperatorName':'',
+                                                'os':'Web',
+                                                'profilePicUrl':userdata.photoUrl,
+                                                'registrationType': 'LINK',
+                                                'osVersion':this.osversion,
+                                                'appVersion':'1.0',
+                                                'deviceName':this.devicename,
+                                                'deviceAndroidID':"",
+                                                'deviceWifiMacID':"",
+                                                'simSerialNo':"",
+                                                'browserDetails':this.browserDetails,
+                                                'socialId':userdata.token
+                                                }
+                                      console.log(linkdinlogin) ; 
+                                    let loadingPop = this.helperservice.createLoadingBar();
+                                    loadingPop.present();
+                            this.globalservice.customersociallogin(linkdinlogin).subscribe(
+                                
+                                (resp)=>{
+                                          if (resp.responseStatus.STATUS=="SUCCESS")
+                                            {
+                                             /* ====== if sucess add his member with tilkee===*/
+                                                //cname[0] cname[1] userdata.email
+                                             let addwithtilkee = {
+                                                                  "customerFirstName":cname[0] ,
+                                                                  "customerLastName": cname[1] ,
+                                                                  "customerEmail": userdata.email
+                                                                 }
+                                            this.globalservice.signup_in_tilkee(addwithtilkee).subscribe(
+                                                                  (resp)=>{
+                                                                    console.log('tilkee user registration')
+                                                                    console.log(resp)
+                                                                  },
+                                                                (err)=>{
+                                                                  console.log(err)
+                                                                }) 
+                                                /* ====== if sucess add his member with tilkee===*/                                  
+                                              loadingPop.dismiss();
+                                              console.log(resp);
+                                              //  this.helperservice.sendalertmessage('bottom',resp.responseStatus.MESSAGE
+                                              // );
+                                                localStorage.setItem("customerId" , resp.responseData.customerId);
+                                                localStorage.setItem("customerEmail" , resp.responseData.customerEmail);
+                                                localStorage.setItem("customerFirstName" ,  resp.responseData.customerFirstName);
+                                                localStorage.setItem("customerLastName" , resp.responseData.customerLastName);
+                                                localStorage.setItem("customerProfilePic" , resp.responseData.customerProfilePic);
+                                                localStorage.setItem("customerSessionId" , resp.responseData.customerSessionId);
+                                                localStorage.setItem('customerEnterprise',resp.responseData.customerEnterprise);
+                                                localStorage.setItem('customerPosition',resp.responseData.customerPosition);
+                                                localStorage.setItem('customerMobile',resp.responseData.customerMobile);
+                                                if(localStorage.getItem("deviceId")!="")
+                                                  {
+                                                    
+                                                  }
+                                                  else
+                                                  {
+                                                    localStorage.setItem('deviceId',this.rString) ;
+                                                  }
+                                                localStorage.setItem('customerPhone',resp.responseData.customerPhone);
+                                                localStorage.setItem('osVersion',this.osversion);
+                                                this.navCtrl.setRoot(MyAccountPage);     
+                                              }
+                                        else
+                                          {
+                                          this.helperservice.sendalertmessage('bottom',resp.responseStatus.MESSAGE);
+                                          }
+                                        },
+                                (err)=>{
+                                        loadingPop.dismiss();
+                                        this.helperservice.sendalertmessage("bottom","Something went wrong!Please try again.");
+                                      }
+                              )
+                      }
+               );
+          
+       
       }
-    );
+    else
+    {
+      console.log(' alredy logged in data')
+      console.log(this.linkdin_user)
+    }
+    
+    // this.socialAuthService.signIn(socialPlatformProvider).then(
+    //   (userData) => {
+    //     console.log("is back");
+    //     console.log(socialPlatform+" sign in data : " , userData);
+    //     console.log(userData.id);
+    //     //let userdata = JSON.parse(userData)
+    //     // Now sign-in with userData
+    //      let cname = userData.name.split(' ')
+
+    //      if(localStorage.getItem("deviceId")!="")
+    //      {
+    //        console.log('old deviceid '+localStorage.getItem("deviceId"))
+    //        this.rString = localStorage.getItem("deviceId")
+    //        console.log('did1'+this.rString);
+    //      }
+    //      else
+    //      {
+    //       this.rString = rString
+    //       console.log('did2'+this.rString);
+    //      }
+    //     let linkdinlogin = {   'locale':'eng', 
+    //                            'customerFirstName':cname[0],
+    //                            'customerLastName':cname[1], 
+    //                            'customerEmail':userData.email,
+    //                            'deviceId':this.rString,
+    //                            'pushNotificationToken':'',
+    //                            'simOperatorName':'',
+    //                            'os':'Web',
+    //                            'profilePicUrl':userData.image,
+    //                            'registrationType': 'LINK',
+    //                            'osVersion':this.osversion,
+    //                            'appVersion':'1.0',
+    //                            'deviceName':this.devicename,
+    //                            'deviceAndroidID':"",
+    //                            'deviceWifiMacID':"",
+    //                            'simSerialNo':"",
+    //                            'browserDetails':this.browserDetails,
+    //                            'socialId':userData.id
+    //                         }
+    //           console.log(linkdinlogin) ;   
+    //           let loadingPop = this.helperservice.createLoadingBar();
+    //           loadingPop.present();
+    //           this.globalservice.customersociallogin(linkdinlogin).subscribe(
+                
+    //             (resp)=>{if (resp.responseStatus.STATUS=="SUCCESS")
+    //             {
+    //               loadingPop.dismiss();
+    //              console.log(resp);
+    //             //  this.helperservice.sendalertmessage('bottom',resp.responseStatus.MESSAGE
+    //             // );
+    //              localStorage.setItem("customerId" , resp.responseData.customerId);
+    //              localStorage.setItem("customerEmail" , resp.responseData.customerEmail);
+    //              localStorage.setItem("customerFirstName" ,  resp.responseData.customerFirstName);
+    //              localStorage.setItem("customerLastName" , resp.responseData.customerLastName);
+    //              localStorage.setItem("customerProfilePic" , resp.responseData.customerProfilePic);
+    //              localStorage.setItem("customerSessionId" , resp.responseData.customerSessionId);
+    //              localStorage.setItem('customerEnterprise',resp.responseData.customerEnterprise);
+    //              localStorage.setItem('customerPosition',resp.responseData.customerPosition);
+    //              localStorage.setItem('customerMobile',resp.responseData.customerMobile);
+    //              if(localStorage.getItem("deviceId")!="")
+    //        {
+             
+    //        }
+    //        else
+    //        {
+    //         localStorage.setItem('deviceId',this.rString) ;
+    //        }
+      
+    //              localStorage.setItem('customerPhone',resp.responseData.customerPhone);
+    //              localStorage.setItem('osVersion',this.osversion);
+    //              this.navCtrl.setRoot(MyAccountPage);     
+    //            }
+    //           else
+    //              {
+    //                this.helperservice.sendalertmessage('bottom',resp.responseStatus.MESSAGE);
+    //             }},(err)=>{loadingPop.dismiss();
+        
+    //               this.helperservice.sendalertmessage("bottom","Something went wrong!Please try again.");}
+    //           )
+
+    //   }
+    // );
   }
   randomString(length, chars) 
       {

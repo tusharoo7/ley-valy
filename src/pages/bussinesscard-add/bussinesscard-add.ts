@@ -112,7 +112,7 @@ export class BussinesscardAddPage {
 
             this.osversion =  objbrowserName+"_"+objfullVersion ;
   }
-
+// go to buisnes card list page 
   back_to_list()
   {
     this.navCtrl.pop();
@@ -155,30 +155,8 @@ export class BussinesscardAddPage {
   var files = event.target.files;
 
  }
-   
   
-  // onFileChanged(event) {
-  //   this.selectedFile = event.target.files[0]
-  //  // console.log(this.selectedFile)
-    
-  //  var files = event.target.files;
-  //  var file = files[0];
-  //   if (files && file) 
-  //   {
-  //       var reader = new FileReader();
-  //       reader.onload =this._handleReaderLoaded.bind(this);
-  //       reader.readAsBinaryString(file);
-  //   }
-
-  // }
-
-  // _handleReaderLoaded(readerEvt) {
-  //   var binaryString = readerEvt.target.result;
-  //          this.base64textString= 'data:image/png;base64,' + btoa(binaryString);
-  //         // console.log(btoa(binaryString));
-  //  }
-
-
+// crete new card 
    add_new_card()
    {
     if(this.user.firstName=='')
@@ -250,40 +228,10 @@ export class BussinesscardAddPage {
   this.helperservice.sendalertmessage('bottom',"oops..! internal error occurred!");
 });   
 
-
-
-
-      
     }
    }
-//   upload_img()
-//   {
-//     let loadingPop = this.helperservice.createLoadingBar();
-//     loadingPop.present();
-//     this.globalservice.camcarddata(this.selectedFile).subscribe((resp) => {
-//       console.log(resp);
-//       this.camcardresp = resp;
-//       let count = Object.keys(this.camcardresp).length;
-//     //console.log(count);
-//     if(count>0)
-//     {
-     
-//       loadingPop.dismiss();
-//       this.navCtrl.push(BussinesscardEditPage,{data:this.camcardresp,image : this.base64textString})
-//     }
-//     else
-//     {
-//       console.log("fddf");
-//     }
-//       //loadingPop.dismiss();
-//      //this.navCtrl.push('tilkee_api_integration');
-     
-// }, (err) => 
-// {
-// //this.helperservice.sendalertmessage('bottom',"oops..! internal error occurred!");
-// });  
-//   }
-//import { MyAccountPage } from '../my-account/my-account';
+
+// GO TO DASHBOARD PAGE
 got_to_home()
 {
   const index = this.navCtrl.getActive().index;

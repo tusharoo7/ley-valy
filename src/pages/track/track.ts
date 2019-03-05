@@ -26,13 +26,21 @@ export class TrackPage {
   display_total_number_of_records : any ='';
   total_record :any=''
   readstatus :any;
+  dynamicpageheading :string=''
   constructor(public navCtrl: NavController, public navParams: NavParams,public globalservice: GlobalValueProvider,public helperservice : HelperService ) {
   this.readstatus = this.navParams.get('read');
+ if (this.readstatus==1)
+ {
+   this.dynamicpageheading ='Tracked file read'
+ }
+ else{
+  this.dynamicpageheading ='Tracked file not  read'
+ }
   console.log(this.readstatus);
   }
 
   ionViewWillEnter(){
-    //  window.location.reload();
+    //  window.location.reload(); 
     let loadingPop = this.helperservice.createLoadingBar();
   loadingPop.present();
       this.globalservice.listproject(this.readstatus).subscribe((resp) => {
@@ -55,7 +63,7 @@ export class TrackPage {
                     }
                     else
                      {
-                      this.helperservice.sendalertmessage('bottom','No Projects Created');
+                     // this.helperservice.sendalertmessage('bottom','No Projects Created');
                     }
    
         //this.navCtrl.push('tilkee_api_integration');
@@ -130,13 +138,13 @@ export class TrackPage {
      
       console.log($event);
     }
-
+// go to satistic page
     getstat(projectid,projectname)
     {
       //this.navCtrl.push('projectstat',{projectid:projectid,projectname:projectname})
       this.navCtrl.push(ProjectStatPage,{projectid:projectid,projectname:projectname})
     }
-
+// back to dashboard 
     got_to_home()
 {
   const index = this.navCtrl.getActive().index;

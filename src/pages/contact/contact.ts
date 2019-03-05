@@ -99,7 +99,7 @@ export class ContactPage {
 
     this.osversion = objbrowserName + "_" + objfullVersion;
   }
-
+// SEARCH CONTACT DETAILS 
   search_contact() {
     if (this.user.first_name == '') {
       this.helperservice.sendalertmessage('bottom', 'Please enter your first name');
@@ -262,6 +262,15 @@ export class ContactPage {
         else if (resp.responseStatus.STATUS == 'FAILED' && resp.responseStatus.STATUSCODE == '300') {
           this.helperservice.sendalertmessage('bottom', resp.responseStatus.MESSAGE);
         }
+         // added by tushar on 6th february 2019
+         else if(resp.responseStatus.STATUS=='FAILED' && resp.responseStatus.STATUSCODE=='602')
+         {
+           this.helperservice.sendalertmessage('bottom',resp.responseStatus.MESSAGE);
+         }
+         else if(resp.responseStatus.STATUS=='FAILED' && resp.responseStatus.STATUSCODE=='603')
+         {
+           this.helperservice.sendalertmessage('bottom',resp.responseStatus.MESSAGE);
+         }
       }, (err) => {
         loadingPop.dismiss();
         this.helperservice.sendalertmessage('bottom', err);
@@ -270,7 +279,7 @@ export class ContactPage {
     }
   }
 
-
+// SAVE TO CONTACT INFORMATION
   add_this_data() {
     let add_card = {
       'locale': 'en',
@@ -315,7 +324,7 @@ export class ContactPage {
         this.helperservice.sendalertmessage('bottom', "oops..! internal error occurred!");
       });
   }
-
+// ADD LUSHA DETAILS
   add_lusha_data() {
     let add_card = {
       'locale': 'en',
@@ -360,6 +369,7 @@ export class ContactPage {
         this.helperservice.sendalertmessage('bottom', "oops..! internal error occurred!");
       });
   }
+  // BACK TO DASHBOARD
   got_to_home() {
     const index = this.navCtrl.getActive().index;
     this.navCtrl.remove(0, index);

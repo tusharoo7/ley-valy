@@ -330,7 +330,7 @@ public caller :string
     this.osversion =  objbrowserName+"_"+objfullVersion ;
 
   }
-
+// ADD NEW BUISNESS CARD
   add_new_card()
   {
      
@@ -483,6 +483,7 @@ public caller :string
  }
 
   //import { MyAccountPage } from '../my-account/my-account';
+  // BACK TO DASHBOARD
 got_to_home()
 {
   const index = this.navCtrl.getActive().index;

@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { 
-  HttpClient , 
-  HttpHeaders,
-  HttpParams,
-  HttpErrorResponse,
-  
-
-} from '@angular/common/http';
+          HttpClient , 
+          HttpHeaders,
+          HttpParams,
+          HttpErrorResponse,
+  } from '@angular/common/http';
 import {RequestOptions, Request, RequestMethod} from '@angular/http';
 import { Constants } from "../constants";
 import { Observable } from 'rxjs/Observable';
@@ -27,6 +25,7 @@ export class ApitwoService {
   private endcPoint: string;
   private endhPoint: string;
   private endlPoint: string;
+  public tilkee_registartion_email :string=""
   constructor(
     private http: HttpClient
   ) {}
@@ -104,12 +103,20 @@ getLushaDefaultHeaders(): HttpHeaders {
   }
 
   getTilkeeDefaultHeaders(): HttpHeaders {
+    if(localStorage.getItem("customerEmail")=="" || localStorage.getItem("customerEmail")=="" || localStorage.getItem("customerEmail")==undefined )
+    {
+      this.tilkee_registartion_email = "hello@ley-valy.com"
+    }
+    else
+    {
+      this.tilkee_registartion_email  = localStorage.getItem("customerEmail")
+    }
     let defaultHeaders = new HttpHeaders({
       'Accept':'application/json',
       'Accept-Encoding':'gzip, deflate, compress',
       'Authorization':'Bearer c9925f845f0e0a2ec4d0f74f51007f9ed7ebbee79ba8d8304eae775e2df0739a',
       'x-tilk-ref':'ley-valy',
-      'USER_EMAIL':'hello@ley-valy.com',
+      'USER_EMAIL':this.tilkee_registartion_email,
       'content-type':'application/json'
           });
     

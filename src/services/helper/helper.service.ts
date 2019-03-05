@@ -17,7 +17,7 @@ export class HelperService {
     public app: App, 
    
   ) { }
-
+// create tost message 
   sendalertmessage(position: string,message: string)
   {
     let toast = this.toastCtrl.create({
@@ -28,7 +28,7 @@ export class HelperService {
 
     toast.present(toast);
   }  
-
+// create image loading bar
   createLoadingBar()
   {
     return this.loadingCtrl.create({
@@ -37,7 +37,7 @@ export class HelperService {
       dismissOnPageChange: false,
   });
   }
-
+// create msg loading bar
   createLoadingBar_upload(msg)
   {console.log(msg)
 
@@ -47,7 +47,7 @@ export class HelperService {
       dismissOnPageChange: false,
   });
   }
-
+// show alert msg
   showConfirmAlert(titel :string,message:string) {
     let response :string ;
     let alert = this.alertCtrl.create({
@@ -75,7 +75,7 @@ export class HelperService {
     return alert;
     
   }
-
+// directly move to login page 
   backtohome()
   {
     console.log("nav ctrl out side of page strture");

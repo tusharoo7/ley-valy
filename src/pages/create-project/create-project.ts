@@ -5,6 +5,8 @@ import { HelperService } from '../../services/helper/helper.service';
 import { GlobalValueProvider } from '../../providers/global-value/global-value';
 
 import { FileTilkeeStartPage } from '../../pages/file-tilkee-start/file-tilkee-start';
+
+import { MyAccountPage } from '../my-account/my-account';
 /**
  * Generated class for the CreateProjectPage page.
  *
@@ -33,7 +35,7 @@ export class CreateProjectPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateProjectPage');
   }
-
+// CREATE NEW PROJECT
   create_a_project()
   {
          
@@ -63,5 +65,11 @@ export class CreateProjectPage {
         });   
 
       }
+  }
+
+  got_to_home() {
+    const index = this.navCtrl.getActive().index;
+    this.navCtrl.remove(0, index);
+    this.navCtrl.setRoot(MyAccountPage)
   }
 }

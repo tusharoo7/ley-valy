@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
-
+import { MyAccountPage } from '../my-account/my-account';
 import { HelperService } from '../../services/helper/helper.service';
 import { GlobalValueProvider } from '../../providers/global-value/global-value';
 import { FileUploadPage } from '../file-upload/file-upload';
@@ -92,5 +92,9 @@ this.helperservice.sendalertmessage('bottom',"oops..! internal error occurred!")
         profileModal.present();
   }
 
-  
+  got_to_home() {
+    const index = this.navCtrl.getActive().index;
+    this.navCtrl.remove(0, index);
+    this.navCtrl.setRoot(MyAccountPage)
+  }
 }

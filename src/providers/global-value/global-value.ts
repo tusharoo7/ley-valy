@@ -116,6 +116,11 @@ export class GlobalValueProvider {
     let api_url ="businessCardList";
     return this.apiservice.post_genreral(api_url,JSON.stringify(data));
    }
+   search_bisnes_card(data)
+   {
+    let api_url ="searchBusinessCardDetails";
+    return this.apiservice.post_genreral(api_url,JSON.stringify(data));
+   }
    get_card_details(data)
    {
     let api_url ="cardDetails";
@@ -194,5 +199,16 @@ export class GlobalValueProvider {
     return this.apiservice.tilkee_directupload_parttwo(file,resp);
   }
 // <!------#five satge api #------------->
+ 
+getsubscriptionslanlist(data)
+{
+  let api_url ="getSubscriptionPlanList";
+  return this.apiservice.post_genreral(api_url,JSON.stringify(data));
+}
 
+subscriptionplanselect(data)
+{
+  let api_url ="userPlanSelection";
+  return this.apiservice.post_genreral(api_url,JSON.stringify(data));
+}
 }
