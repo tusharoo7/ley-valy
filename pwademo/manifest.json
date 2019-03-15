@@ -1,0 +1,35 @@
+{
+  "short_name": "ley-valy",
+  "name": "ley-valy",
+  "theme_color": "#f2f2f2",
+  "background_color": "#f2f2f2",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "assets/imgs/48x48/logo.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "assets/imgs/96x96/logo.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "assets/imgs/144x144/logo.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "assets/imgs/192x192/logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/imgs/512x512/logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/public/pwa/pwademo/index.html"
+}
