@@ -12,7 +12,10 @@ page-bussinesscard {
       color: #fff;
       font-weight: 700;
     }
-    ion-icon{font-size: 26px}
+
+    ion-icon {
+      font-size: 26px
+    }
   }
 
   .bussiness-table-wrap {
@@ -183,14 +186,23 @@ page-bussinesscard {
   .bussinesscard-list-wrap-box.col {
     position: relative;
   }
+
   .bussinesscard-list-wrap-box.no-card-found {
     height: 192px;
     border: 1px solid #ccc;
     position: relative;
     border-radius: 6px;
     margin-top: 4px;
-   p{position: absolute; left: 50%;top: 50%;transform: translate(-50%, -50%); margin: 0}
+
+    p {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0
+    }
   }
+
   .center_text {
     text-align: center !important;
   }
@@ -215,11 +227,15 @@ page-bussinesscard {
     list-style: none;
     padding: 0
   }
-.card_not_found{
-  .bussinesscard-list-wrap{ justify-content: center;}
- }
+
+  .card_not_found {
+    .bussinesscard-list-wrap {
+      justify-content: center;
+    }
+  }
+
   .bussinesscard-list-wrap {
-    
+
     ul {
       border: 1px solid #ccc;
       padding: 7px 0 0 0;
@@ -236,9 +252,9 @@ page-bussinesscard {
     li {
       overflow: hidden;
       margin-bottom: 5px;
-      margin: 2% 3%;
+      margin: 2% 2%;
 
-      &:last-child{
+      &:last-child {
         margin: 0;
       }
 
@@ -247,22 +263,46 @@ page-bussinesscard {
         float: left;
         margin: 0;
         font-size: 15px;
-       
+        margin-right: 4px;
+        
+
+        @media(max-width: 768px) {
+          width: 42%;
+        }
         // font-weight: bold;
-        ion-icon{margin-right: 8px; margin-bottom: 6px;}
+        ion-icon {
+          margin-right: 8px;
+          margin-bottom: 6px;
+        }
       }
 
       h3 {
         float: left;
         font-size: 15px;
         margin: -1px 0 0 0;
-       // margin-left: 8px
+
+
+        // margin-left: 8px
+
+        @media(max-width: 768px) {
+          width: 52%;
+        }
       }
-      &:first-child{
-        h2{font-size: 16px}
-        h3{font-size: 16px; font-weight: bold}
+
+      &:first-child {
+        h2 {
+          font-size: 16px
+        }
+
+        h3 {
+          font-size: 16px;
+          font-weight: bold
+        }
       }
-      div{padding-top: 3px;}
+
+      div {
+        padding-top: 3px;
+      }
     }
   }
 
@@ -271,12 +311,13 @@ page-bussinesscard {
     .add-bt {
       margin-bottom: 20px;
     }
+
     [col-4] {
       -webkit-box-flex: 0;
       width: 50%;
       max-width: 50%;
       flex: 0 0 50%;
-  }
+    }
   }
 
   @media (max-width: 768px) {
@@ -294,34 +335,39 @@ page-bussinesscard {
       width: 100%;
     }
   }
+
   button.view-details {
     width: 100%;
     text-align: center;
     font-size: 15px;
     padding: 13px 8px;
     background: rgb(238, 238, 238);
-}
+  }
+
   /*responsive view*/
 
-  #div1, #div2 {
+  #div1,
+  #div2 {
     float: left;
     width: 100px;
     height: 35px;
     margin: 10px;
     padding: 10px;
     border: 1px solid black;
-}
-.reset-class{
-  width: 50%; 
-  margin: 0 auto;
-   text-align: center;
-  
-   //display: none;
-}
-.reset-class .log-in-bt{
-   background: #043ab4;
+  }
+
+  .reset-class {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+
+    //display: none;
+  }
+
+  .reset-class .log-in-bt {
+    background: #043ab4;
     width: 50%;
     border-radius: 15px;
-}
+  }
 
 }

@@ -34,6 +34,7 @@ page-payment {
       text-transform: uppercase;
       font-size: 12px;
       cursor: default;
+     
     }
    
     button.payment-bt-select {
@@ -47,6 +48,7 @@ page-payment {
       font-weight: 600;
       text-transform: uppercase;
       font-size: 12px;
+      opacity: 1;
     }
 
     .top-bar {
@@ -104,6 +106,10 @@ page-payment {
         }
       }
     }
+  }
+
+  .icon_img{
+    margin-left:0 !important;
   }
 
   @media(max-width:1024px) {

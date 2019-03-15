@@ -233,7 +233,7 @@ export class BussinesscardAddPage {
 
 // GO TO DASHBOARD PAGE
 got_to_home()
-{
+{console.log("dsds")
   const index = this.navCtrl.getActive().index;
   this.navCtrl.remove(0, index);
   this.navCtrl.setRoot(MyAccountPage)

@@ -14,6 +14,8 @@ import {ContactPage} from '../pages/contact/contact' ;
 import { GlobalValueProvider } from '../providers/global-value/global-value';
 import { HelperService } from '../services/helper/helper.service';
 
+
+
 @Component({
   templateUrl: 'app.html'
 })

@@ -24,13 +24,14 @@
                 <h2>{{free_subscription.subscriptionName}}</h2>
                 <h3>{{free_subscription.subscriptionType}}</h3>
                 <h5>{{free_subscription.periodWithCharge}}</h5>
-                <a  class="payment-bt-select">{{free_subscription.status}}</a>
+                <button  class="payment-bt-select">{{free_subscription.status}}</button>
               </div>
               <div class="features-list">
                 <ul>
                   <li> <ion-icon ios="ios-calendar-outline" md="ios-calendar-outline"></ion-icon><b> {{free_subscription.durationLevel}}:</b> <span> 
                     {{free_subscription.durationValue}}  </span></li>
-                  <li><ion-icon ios="ios-card" md="ios-card"></ion-icon>  <b> Business card scanned :</b> <span> {{free_subscription.businessCardScanVal}}
+                  <!-- <li><ion-icon ios="ios-person-outline" md="md-person"></ion-icon> <b>User:</b> <span>2 to 7</span></li> -->
+                  <li><span class="icon_img"><img src="assets/imgs/business-card-icon.png"></span>  <b> Business card scanned :</b> <span> {{free_subscription.businessCardScanVal}}
                    </span></li>
                   <li> <ion-icon ios="ios-eye-outline" md="ios-eye-outline"></ion-icon> <b> Tracked documents :</b> <span>{{free_subscription.trackedDocumentsVal}}
                     </span> </li>
@@ -60,7 +61,9 @@
                     <li> <ion-icon ios="ios-calendar-outline" md="ios-calendar-outline"></ion-icon><b> {{yearly_subscription.durationLevel}}:</b> <span> 
                       {{yearly_subscription.durationValue}}  </span></li>
 
-                    <li><ion-icon ios="ios-card" md="ios-card"></ion-icon> <b> Business card scanned :</b> <span>{{yearly_subscription.businessCardScanVal}}
+                      <!-- <li><ion-icon ios="ios-person-outline" md="md-person"></ion-icon> <b>User:</b> <span>2 to 6</span></li> -->
+                      <!-- <ion-icon ios="ios-card" md="ios-card"></ion-icon> -->
+                    <li><span class="icon_img"><img src="assets/imgs/business-card-icon.png"></span> <b> Business card scanned :</b> <span>{{yearly_subscription.businessCardScanVal}}
                       </span> </li>
 
 
